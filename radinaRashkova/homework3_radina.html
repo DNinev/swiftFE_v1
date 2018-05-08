@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Homework3</title>
+	<style>
+
+		table,th,td{
+			border :1px solid rgb(211,211,211);
+			}
+		table{
+			border-collapse:collapse;
+			}
+		h4{
+			font-weight:normal;
+			display:inline;
+			}
+		select{
+			border :1px solid rgb(211,211,211);
+			height:25px; 
+			width:180px;
+			}
+			color: grey; 
+			}
+		input[type=number]{
+			border:1px solid rgb(211,211,211);
+			height:20px; 
+			width:180px;
+			}
+		#td1, #td3, #td4{
+			height:400px;
+			width:240px;
+			}
+		#td2, #td7{
+			height:400px; 
+			width:40px;
+			}
+		#td5, td6{
+			height:400px; 
+			width:180px;
+			}
+		#drive_poster, #taboo_poster, #narcos_poster{
+			height:220px;
+			width:120px;
+			text-align:center;
+			margin-left:70px;
+			}
+		#name1, #name2,#name3{
+			text-align:center;
+			margin-left:70px;
+			}
+		#description1, #description2, #description3{
+			margin-top:60px;
+			margin-bottom:80px;
+			}
+	
+	</style>
+</head>
+<body>
+	<table>
+		<tr>
+			<th rowspan="2">Poster</th>
+			<th rowspan="2">Movie Title</th>
+			<th rowspan="2">Description</th>
+			<th rowspan="2">Trailer</th>
+			<th colspan="2">Rating</th>
+			<th rowspan="2">Watched</th>
+		</tr>
+		<tr>
+			<th>Site1</th>
+			<th>Site2</th>
+		</tr>
+		<tr>
+			<td id="td1">
+				<span><img src="https://ih1.redbubble.net/image.427163538.9839/flat,550x550,075,f.u3.jpg" alt="drive_poster" id="drive_poster">
+				<a href="https://en.wikipedia.org/wiki/Drive_(2011_film)" id="name1">Drive</a></span></td>
+			<td id="td2">
+				<a href="https://www.imdb.com/title/tt0780504" id="MovieTitle1">Drive</a>
+				<p>(2011)</p></td>
+			<td id="td3">
+			<div id="description1">
+				<h2>Story</h2>
+				<p>Drive is a 2011 American neo-noir crime thriller film directed by the Danish filmmaker Nicolas Winding Refn. The screenplay, written by Hossein Amini, is based on James Sallis' 2005 novel Drive. A mysterious Hollywood stuntman and mechanic moonlights as a getaway driver and finds himself in trouble when he helps out his neighbor. </p>
+				<h4>Writers:</h4>
+				<span><a href="https://www.imdb.com/name/nm0024925/?ref_=tt_ov_wr">Hossein Amini</a>
+				<a href="https://www.imdb.com/name/nm2201245/?ref_=tt_ov_wr">James Salis</a></span>
+				<p></p>
+				<h4>Actors:</h4>
+				<span><a href="https://www.imdb.com/name/nm0331516/?ref_=tt_ov_st_sm">Ryan Gosling</a>
+				<a href="https://www.imdb.com/name/nm1659547/?ref_=tt_ov_st_sm">Carey Mulligan</a>
+				<a href="https://www.imdb.com/name/nm0186505/?ref_=ttfc_fc_cl_t3">Bryan Cranston</a></span></div></td>
+			<td id="td4">
+				<iframe src="https://www.youtube.com/embed/-DSVDcw6iW8"></iframe>
+				<p>Movie Soundtrack</p></td>
+			<td id="td5">
+				<select name="rating1" required>
+					<option value="" disabled selected hidden>Score from 1 to 10</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select></td>
+			<td id="td6">
+				<input type="number" name="rating2" min="-10" max="10" placeholder="Score from -10 to 10"></td>
+			<td id="td7">
+				<input type="radio" name="YesOrNo" value="Yes">Yes
+				<input type="radio" name="YesOrNo" value="No">No</td>
+		</tr>
+		<tr>
+			<td>
+				<span><img src="https://ia.media-imdb.com/images/M/MV5BMTYyNTQwNzk0OV5BMl5BanBnXkFtZTgwMDAyMDI2MDI@._V1_SY1000_SX666_AL_.jpg" alt="taboo_poster" id="taboo_poster">
+				<a href="https://en.wikipedia.org/wiki/Taboo_(2017_TV_series)" id="name2">Taboo</a></span></td>
+			<td>
+				<a href="https://www.imdb.com/title/tt3647998/?ref_=fn_al_tt_1" id="MovieTitle2">Taboo</a>
+				<p>(2017)</p></td>
+			<td>
+			<div id="description2">
+				<h2>Story</h2>
+				<p>Adventurer James Keziah Delaney returns to London during the War of 1812 to rebuild his late father's shipping empire. However, both the government and his biggest competitor want his inheritance at any cost - even murder. </p>
+				<h4>Creators:</h4>
+				<span><a href="https://www.imdb.com/name/nm0362609/?ref_=tt_ov_wr">Chips Hardy</a>
+				<a href="https://www.imdb.com/name/nm0362766/?ref_=tt_ov_wr">Tom Hardy</a>
+				<a href="https://www.imdb.com/name/nm1140275/?ref_=tt_ov_wr">Steven Knight</a></span>
+				<p></p>
+				<h4>Actors:</h4>
+				<span><a href="https://www.imdb.com/name/nm0362766/?ref_=tt_ov_wr">Tom Hardy</a>
+				<a href="https://www.imdb.com/name/nm0371342/?ref_=tt_ov_st_sm">David Haymen</a>
+				<a href="https://www.imdb.com/name/nm0000596/?ref_=tt_ov_st_sm">Jonathan Price</a></span></div></td>
+			<td>
+				<iframe src="https://www.youtube.com/embed/foowL2xczIo"></iframe>
+				<p>Movie Soundtrack</p></td>
+			<td>
+				<select name="rating1" required>
+					<option value="" disabled selected hidden>Score from 1 to 10</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select></td>
+			<td>
+				<input type="number" name="rating2" min="-10" max="10" placeholder="Score from -10 to 10"></td>
+			<td>
+				<input type="radio" name="YesOrNo" value="Yes">Yes
+				<input type="radio" name="YesOrNo" value="No">No</td>
+		</tr>
+		<tr>
+			<td>
+				<span><img src="https://images-na.ssl-images-amazon.com/images/I/61ojatIj%2BWL._SY550_.jpg" alt="narcos_poster" id="narcos_poster">
+				<a href="https://en.wikipedia.org/wiki/Taboo_(2017_TV_series)" id="name3">Narcos</a></span></td>
+			<td>
+				<a href="https://en.wikipedia.org/wiki/Narcos" id="MovieTitle3">Narcos</a>
+				<p>(2015)</p></td>
+			<td>
+			<div id="description3">
+				<h2>Story</h2>
+				<p>A chronicled look at the criminal exploits of Colombian drug lord Pablo Escobar, as well as the many other drug kingpins who plagued the country through the years.. </p>
+				<h4>Creators:</h4>
+				<span><a href="https://www.imdb.com/name/nm0076166/?ref_=tt_ov_wr">Carlo Bernard</a>
+				<a href="https://www.imdb.com/name/nm0104333/?ref_=tt_ov_wr">Chris Brancato</a>
+				<a href="https://www.imdb.com/name/nm1215164/?ref_=tt_ov_wr">Doug Miro</a></span>
+				<p></p>
+				<h4>Actors:</h4>
+				<span><a href="https://www.imdb.com/name/nm0050959/?ref_=tt_ov_st_sm">Pedro Pascal</a>
+				<a href="https://www.imdb.com/name/nm0609944/?ref_=tt_ov_st_sm">Wagner Moura</a>
+				<a href="https://www.imdb.com/name/nm2933542/?ref_=tt_ov_st_sm">Boyd Holbrook</a></span></div></td>
+			<td>
+			<iframe src="https://www.youtube.com/embed/GJm7H9IP5SU"></iframe>
+			<p>Movie Soundtrack</p></td>
+			<td>
+				<select name="rating1" required>
+					<option value="" disabled selected hidden>Score from 1 to 10</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+				</select></td>
+			<td>
+				<input type="number" name="rating2" min="-10" max="10" placeholder="Score from -10 to 10"></td>
+			<td>
+				<input type="radio" name="YesOrNo" value="Yes">Yes
+				<input type="radio" name="YesOrNo" value="No">No</td>
+		</tr>
+	</table>
+</body>
+</html>
