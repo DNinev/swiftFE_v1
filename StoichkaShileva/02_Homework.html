@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Homework 2</title>
+		<meta charset = "UTF-8">
+	</head>
+	
+	<body>
+		<h1>Главно заглавие</h1>
+		<h2>Подзаглавие</h2>
+		<form>
+			<fieldset>
+				<legend>Основни филтри:</legend>
+				<p>
+				<label for="name1">
+					<span>Име</span>
+					<input type="text" name="name1" id="name1" placeholder="Име"  maxlenght="4" required>
+				</label>
+				</p>
+				<p>
+				<label for="familyName1">
+					<span>Фамилия</span>
+					<input type="text" name="familyName1" id="familyName1" placeholder="Фамилия" required>
+				</label>
+				</p>
+				<p>
+				<label for="idnumber1">
+					<span>Идентификационен номер</span>
+					<input type="number" name="idnumber1" id="idnumber1" placeholder="№" required>
+				</label>
+				</p>
+				<p>
+				<label for="age">
+					<span>Години</span>
+					<input type="number" name="age" id="age" placeholder="Години" min="20" max="80" required>
+				</label>
+				</p>
+				<p>
+				<span>Пол</span>
+				<label for="checkbox1-1">
+					<input type="radio" name="gender" id="checkbox1-1" >
+					<span>Мъж</span>
+				</label>
+				<label for="checkbox1-2">
+					<input type="radio" name="gender" id="checkbox1-2" checked>
+					<span>Жена</span>
+				</label>
+				</p>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Времеви филтри:</legend>
+				<p>
+				<label for="issuedate1">
+					<span>Начална дата</span>
+					<input type="date"  id="issuedate1">
+				</label>
+				</p>
+				<p>
+				<label for="issuedate2">
+					<span>Крайна дата</span>
+					<input type="date"  id="issuedate2">
+				</label>
+				</p>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Контакти:</legend>
+				<p>
+				<label for="phoneNumber1">
+					<span>Телефонен номер</span>
+					<input type="number" name="phoneNumber1" id="phoneNumber1" placeholder="+359">
+				</label>
+				</p>
+				<p>
+				<label for="email1">
+					<span>Email</span>
+					<input type="text" name="email1" id="email1" placeholder="email">
+				</label>
+				</p>
+			</fieldset>
+			<!-- I know the following button type is not SUBMIT but I have no idea what type I need to use -->
+			<button type="submit" value="submit">Търсене</button>
+			<button type="reset" value="reset">Изтрий</button>
+		</form>	
+		<p></p>
+		<table  style="border: 1px solid black; border-collapse:collapse;">
+			<tr>
+				<td style="border:1px solid black;">Резултати:</td>
+			</tr>
+			<tr >
+				<th style="border:1px solid black;">Номер</th>
+				<th style="border:1px solid black;">Име</th> 
+				<th style="border:1px solid black;">Фамилия</th>
+				<th style="border:1px solid black;">ИН</th>
+				<th style="border:1px solid black;">Пол</th> 
+				<th style="border:1px solid black;">НД</th>
+				<th style="border:1px solid black;">КД</th>
+				<th style="border:1px solid black;">КК</th> 
+				<th style="border:1px solid black;">Имейл</th>
+			</tr>
+			<tr>
+				<td style="border:1px solid black;">1</td>
+				<td style="border:1px solid black;">2</td> 
+				<td style="border:1px solid black;">3</td>
+				<td style="border:1px solid black;">4</td>
+				<td style="border:1px solid black;">5</td> 
+				<td style="border:1px solid black;">6</td>
+				<td style="border:1px solid black;">7</td>
+				<td style="border:1px solid black;">8</td> 
+				<td style="border:1px solid black;">9</td>
+			</tr>
+				<tr>
+				<td style="border:1px solid black;">11</td>
+				<td style="border:1px solid black;">12</td> 
+				<td style="border:1px solid black;">13</td>
+				<td style="border:1px solid black;">14</td>
+				<td style="border:1px solid black;">15</td> 
+				<td style="border:1px solid black;">16</td>
+				<td style="border:1px solid black;">17</td>
+				<td style="border:1px solid black;">18</td> 
+				<td style="border:1px solid black;">19</td>
+			</tr>
+				<tr>
+				<td style="border:1px solid black;">21</td>
+				<td style="border:1px solid black;">22</td> 
+				<td style="border:1px solid black;">23</td>
+				<td style="border:1px solid black;">24</td>
+				<td style="border:1px solid black;">25</td> 
+				<td style="border:1px solid black;">26</td>
+				<td style="border:1px solid black;">27</td>
+				<td style="border:1px solid black;">28</td> 
+				<td style="border:1px solid black;">29</td>
+			</tr>
+			<tfoot>
+				<tr>
+					<td> Проба 1</td>
+					<td> Проба 2</td>
+					<td> Проба 3</td>
+					<td> Проба 4</td>
+					<td> Проба 5</td>
+					<td> Проба 6</td>
+					<td> Проба 4</td>
+					<td> Проба 5</td>
+					<td> Проба 6</td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+	
+</html>
