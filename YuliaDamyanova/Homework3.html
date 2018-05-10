@@ -20,54 +20,176 @@
 		padding: 5px;
 		text-align: center;
 	}
+	img {
+		width: 150px;
+		height: 218px;
+	}
 
 </style> 
 </head>
 <body>
 	<table>
-		<tr>
-			<th rowspan="2">Poster</th>
-			<th rowspan="2">Movie Title</th> 
-			<th rowspan="2">Description</th>
-			<th rowspan="2">Trailer</th>
-			<th colspan="2">Rating</th>
-			<th rowspan="2">Watched</th>
-		</tr>
-		<tr>
-			<th>Site1 </th>
-			<th>Site2 </th>
-		</tr>
-		<tr>
-			<td>
-				<h3>Life of the party</h3>
-				<a href="http://flavorwire.com/613004/heres-the-first-trailer-for-melissa-mccarthys-new-comedy" title="View more" target="_blank">
-					<img src="D:\LifeOfTheParty.jpg" alt="Poster">
-					<h2>View more</h2>
-				</a>
-			</td>
-			<td>
-				<a href="https://www.imdb.com/title/tt5619332/" target="_blank">Movie name</a>
-			</td>
-			<td>
-				<h3>Story</h3>
-				<p>When her husband suddenly dumps her, longtime and dedicated housewife Deanna turns regret into reset by going back to college.</P> <p> Unfortunately, Deanna winds up at the same school as her less-than-thrilled daughter.</p><p> Plunging headlong into the campus experience, the outspoken new student soon begins a journey of self-discovery while fully embracing all of the fun, freedom and frat boys that she can handle
+		<thead>
+			<tr>
+				<th rowspan="2">Poster</th>
+				<th rowspan="2">Movie Title</th> 
+				<th rowspan="2">Description</th>
+				<th rowspan="2">Trailer</th>
+				<th colspan="2">Rating</th>
+				<th rowspan="2">Watched</th>
+			</tr>
+
+			<tr>
+				<th>Site1 </th>
+				<th>Site2 </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>
+					<h3>Life of the party</h3>
+					<a href="http://flavorwire.com/613004/heres-the-first-trailer-for-melissa-mccarthys-new-comedy" title="View more" target="_blank">
+						<img src="D:\LifeOfTheParty.jpg" alt="Poster">
+						<h4>View more</h4>
+					</a>
+				</td>
+				<td>
+					<a href="https://www.imdb.com/title/tt5619332/" target="_blank">Movie name</a>
+				</td>
+				<td>
+					<h3>Story</h3>
+					<p>When her husband suddenly dumps her, longtime and dedicated housewife Deanna turns regret into reset by going back to college.</P> <p> Unfortunately, Deanna winds up at the same school as her less-than-thrilled daughter.</p><p> Plunging headlong into the campus experience, the outspoken new student soon begins a journey of self-discovery while fully embracing all of the fun, freedom and frat boys that she can handle
+					</p>
+					<h3>Actress:
+						<a href="https://www.imdb.com/name/nm0565250/" target="_blank" title="Mlissa McCarthy">Mlissa McCarthy</a>
+						<a href="https://www.imdb.com/name/nm1843026/" target="_blank " title="Gilian Jacobs">Gilian Jacobs</a>
+					</h3>
+					<h3>Actress:
+						<a href="https://www.imdb.com/name/nm0748973/" target="_blank" title="Maya Rudolph">Maya Rudolph</a>
+
+					</h3>
+				</td>
+				<td>
+					<iframe width="560" height="315"
+					src="https://www.youtube.com/embed/YTyfkQrr6M4?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					<p>
+						<strong>Official trailer</strong>
+					</p>
+				</td>
+				<td>Score from 1 to 10
+					<select>
+						<option value="1"> 1</option>
+						<option value="2"> 2</option>
+						<option value="3"> 3</option>
+						<option value="4"> 4</option>
+						<option value="5"> 5</option>
+						<option value="6"> 6</option>
+						<option value="7"> 7</option>
+						<option value="8"> 8</option>
+						<option value="9"> 9</option>
+						<option value="10"> 10</option>
+					</select>
+				</td>	
+				<td>
+					<lebel for="Score">Score from -10 to 10</lebel>
+					<input type="number"  max="10" min="-10">
+				</td>
+				<td>
+					<form>
+						<input type="radio" name="gender" value="Yes">Yes<p></p>
+						<input type="radio" name="gender" value="No">No
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Avatar 2</h3>
+					<a href="https://www.google.bg/search?q=Avatar+2&rlz=1C1VFKB_enBG615BG623&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiL9qqwwPnaAhUBdCwKHTpTDloQ_AUICigB&biw=1366&bih=613#imgrc=f_a5xTuCxeY5VM:" title="View more" target="_blank">
+						<img src="D:\avatar.jpg" alt="View Poster">
+						<h4>View more</h4>
+					</a>
+				</td>
+				<td>
+					<a href="https://www.imdb.com/title/tt0126029/plotsummary" title="The Story" target="_blank">Movie Story </a>
+				</td>
+				<td>
+					
+					<h3>Story</h3>
+					<p>On the lush alien world of Pandora live the Na'vi, beings who appear primitive but are highly evolved.</p> Because the planet's environment is poisonous, human/Na'vi hybrids, called Avatars, must link to human minds to allow for free movement on Pandora. <p>Jake Sully (Sam Worthington), a paralyzed former Marine, becomes mobile again through one such Avatar and falls in love with a Na'vi woman (Zoe Saldana).</p><p>As a bond with her grows, he is drawn into a battle for the survival of her world.
+					</p>
+					<h3>Actors:
+						<a href="https://www.imdb.com/name/nm0757855/" target="_blank" title="Zoe Saldana">Zoe Saldana</a>
+						<a href="https://www.imdb.com/name/nm1843026/" target="_blank " title="Sam Worthington">Sam Worthington</a>
+					</h3>
+					<h3>Director:
+						<a href="https://www.imdb.com/name/nm0000116/" target="_blank" title="James Cameron">James Cameron</a>
+					</h3>
+				</td>
+
+				<td>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/5PSNL1qE6VY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					<p>
+						<strong>Official trailer</strong>
+					</p>
+				</td>	
+				<td>Score from 1 to 10
+					<select>
+						<option value="1"> 1</option>
+						<option value="2"> 2</option>
+						<option value="3"> 3</option>
+						<option value="4"> 4</option>
+						<option value="5"> 5</option>
+						<option value="6"> 6</option>
+						<option value="7"> 7</option>
+						<option value="8"> 8</option>
+						<option value="9"> 9</option>
+						<option value="10"> 10</option>
+					</select>
+				</td>	
+				<td>
+					<lebel for="Score">Score from -10 to 10</lebel>
+					<input type="number"  max="10" min="-10">
+				</td>
+				<td>
+					<form>
+						<input type="radio" name="gender" value="Yes">Yes<p></p>
+						<input type="radio" name="gender" value="No">No
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Shrek</h3>
+					<a href="https://www.imdb.com/title/tt0126029/" title="View more" target="_blank">
+						<img src="D:\Shrek.jpg" alt="View Poster">
+						<h4>View more</h4>
+
+					</a>
+				</td>
+				<td>
+					<a href="https://www.vostory.com/avatar-2-story-release-date-2/" title="The Story" target="_blank">Movie Story </a>
+				</td>
+				<td>
+					<h3>Story</h3>
+					<p>Once upon a time, in a far away swamp, there lived an ogre named Shrek (Mike Myers) whose precious solitude is suddenly shattered by an invasion of annoying fairy tale characters. </p><p>They were all banished from their kingdom by the evil Lord Farquaad (John Lithgow). </p>Determined to save their home -- not to mention his -- Shrek cuts a deal with Farquaad and sets out to rescue Princess Fiona (Cameron Diaz) to be Farquaad's bride. Rescuing the Princess may be small compared to her deep, dark secret.
 				</p>
-				<h3>Actress:
-					<a href="https://www.imdb.com/name/nm0565250/" target="_blank" title="Mlissa McCarthy">Mlissa McCarthy</a>
-					<a href="https://www.imdb.com/name/nm1843026/" target="_blank " title="Gilian Jacobs">Gilian Jacobs</a>
-				</h3>
-				<h3>Actress:
-					<a href="https://www.imdb.com/name/nm0748973/" target="_blank" title="Maya Rudolph">Maya Rudolph</a>
+				<h3>Actors:
+					<a href="https://www.imdb.com/name/nm0000196/?ref_=tt_ov_st_sm" target="_blank" title="Mike Myers">Mike Myers</a>
+					<a href="https://www.imdb.com/name/nm0000552/?ref_=tt_ov_st_sm" target="_blank " title="Eddy Murphy">Eddy Murphy</a>
+					<a href="https://www.imdb.com/name/nm0000139/?ref_=tt_ov_st_sm" target="_blank " title="Cameron Diaz">Cameron Diaz</a>
 					
 				</h3>
+				<h3>Director:
+					<a href="https://www.imdb.com/name/nm0011470/?ref_=tt_ov_dr" target="_blank" title="Andrew Adomson">Andrew Adomson</a>
+				</h3>
 			</td>
+
 			<td>
-				<iframe width="560" height="315"
-				src="https://www.youtube.com/embed/YTyfkQrr6M4?ecver=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/W37DlG1i61s" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				<p>
 					<strong>Official trailer</strong>
 				</p>
-			</td>
+			</td>	
 			<td>Score from 1 to 10
 				<select>
 					<option value="1"> 1</option>
@@ -92,8 +214,11 @@
 					<input type="radio" name="gender" value="No">No
 				</form>
 			</td>
+
+
 		</tr>
-	</table>
+	</tbody>
+</table>
 
 </body>
 </html>
