@@ -51,6 +51,17 @@
             border-color: red;
         }
 
+        .absolute.small {
+            height:30px;
+            width: 30px;
+            top: initial;
+            bottom: 0;
+            left: 0;
+            background-color: transparent;
+            border-color: red;
+            font-size: 12px;
+        }
+
         .fixed {
             position: fixed;
             height: 300px;
@@ -104,19 +115,25 @@
     <div class="static">position: static</div>
     <div class="static">position: static</div> -->
 
+    <!-- <div class="static">position static + abs
+        <div class="absolute small">abs. pos.</div>
+    </div> -->
+
+    <!-- <div class="relative">position relative + abs
+        <div class="absolute small">abs. pos.</div>
+    </div> -->
+
 
     <!-- <div class="for-fixed"></div>
     <div class="fixed">position:fixed</div> -->
 
-
-
     <!-- <div class="static for-sticky">position: static</div>
-        <div class="sticky">position: sticky</div>
-        <div class="static for-sticky">position: static</div>
-        <div class="static for-sticky">position: static</div> -->
-
-
-
+    <div class="sticky">position: sticky
+        <div class="absolute small">abs. pos.</div>
+    </div>
+    <div class="static for-sticky">position: static</div>
+    <div class="static for-sticky">position: static</div>
+    <div class="static for-sticky">position: static</div> -->
 
 </body>
 
