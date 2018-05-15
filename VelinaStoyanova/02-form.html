@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Homework02</title>
+</head>
+<body>
+    <form>
+    <h1>
+        Формуляр
+    </h1>
+    <h2>Моля въведете вашите данни</h2>
+        <fieldset>
+            <legend>Основни филтри</legend>
+            <p>
+                <label for="firstName">
+					<span>Име</span>
+					<input type="text" name="firstName" id="firstName" placeholder="Име">
+				</label>
+            </p>
+            <p>
+                <label for ="lastName">
+                    <span>Фамилия</span> 
+                    <input type="text" name="lastName" id="lastName" placeholder ="Фамилия">
+                </label>
+            </p>
+            <p>
+                <label for ="number1" >
+                    <span>Идентификационен номер</span> 
+                    <input type="number" name="number1" id="number1" placeholder ="Идентификационен">
+                </label>
+            </p>
+            <p>
+                <span>Пол</span> 
+                <input type="radio" name="gender" value="Мъж">Мъж
+                <input type="radio" name="gender" value="Жена">Жена
+            </p>
+        </fieldset>
+        <fieldset>
+            <legend>Времеви филтри</legend>
+                <p>
+                    <span>Начална дата</span>
+                    <input type="date" name="date1" >
+                </p>
+                <p>
+                    <span>Крайна дата</span>
+                    <input type="date" name="date2" >
+                </p>
+        </fieldset>
+        <fieldset>
+            <legend>Въведете вашите години</legend>
+            <label for="years">
+                    <span>Години</span>
+                    <input type="number" name="" id="years" min="20" max="80">
+            </label>
+            
+
+        </fieldset>
+        <fieldset>
+                <legend>Контакти</legend>
+                    <p>
+                        <span>Канал за комуникация</span>
+                        <select>
+                            <option value="Phone">Телефон</option>
+                            <option value="MobilePhone">Мобилен Телефон</option>
+                            <option value="Email">Email</option>
+                        </select>
+                    </p>
+                    <p>
+                        <span>Email</span>
+                        <input type="email" name="email" >
+                    </p>
+        </fieldset>
+        <p>
+        <button type="submit" value="submit">Търсене</button>
+        <button type="reset" value="reset">Изтриване</button>
+        </p>
+        <div>
+            
+            <table border=1>
+                <thead>
+                    <tr >
+                        <th colspan="9" align=left>Резултати:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>Номер</th>
+                        <th>Име</th>
+                        <th>Фамилия</th>
+                        <th>ИН</th>
+                        <th>Пол</th>
+                        <th>НД</th>
+                        <th>КД</th>
+                        <th>КК</th>
+                        <th>ИМЕЙЛ</th>
+                    </tr>
+                     <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                <tfoot>
+                    <tr>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                        <td>&nbsp</td>
+                    </tr>
+                </tbody>
+                </tfoot>
+            </table>
+        </div>
+
+    </form>
+
+</body>
+
+
+
+
+</html>
+    
