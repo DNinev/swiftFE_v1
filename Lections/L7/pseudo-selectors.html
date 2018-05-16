@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pseudo Selectors</title>
+
+    <style>
+        input:required {
+            border-color: blue;
+        }
+
+        input:required:invalid {
+            color: red;
+        }
+
+        input:required:valid {
+            color: green;
+        }
+
+        button:focus {
+            background-color: #000;
+            color: #fff;
+            outline: royalblue
+        }
+
+        button:hover {
+            background-color: white;
+            border-color: green;
+            cursor:pointer;
+            border-radius: 2px;
+        }
+
+        button:focus:hover{
+            color: red;
+        }
+
+        button:active:hover {
+            background-color: orange;
+            color: green;
+        }
+
+        li:first-child a{
+            color: red;
+        }
+
+        a:last-child {
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="">
+        <input type="email" name="" id="" required>
+        <button type="submit">Изпрати</button>
+    </form>
+
+    <a href="/">Примерен линк</a>
+
+
+    <ul>
+        <li>Лист първо ниво
+            <ul>
+                <li>Лист второ ниво
+                </li>
+                <li>Лист второ ниво
+                    <a href="">Линк на лист от второ ниво</a>
+                    <p>Параграф на лист от второ ниво</p>
+                    <p>Параграф на лист от второ ниво</p>
+                    <p>Параграф на лист от второ ниво</p>
+                    <a href="">Линк на лист от второ ниво</a>
+                    <a href="">Линк на лист от второ ниво</a>
+                    <a href="">Линк на лист от второ ниво</a>
+                </li>
+                <li>Лист второ ниво
+                    <p>Параграф на лист от второ ниво'
+                        <a href="">Линк в параграф</a>
+                    </p>
+                </li>
+            </ul>
+        </li>
+        <li>Лист първо ниво
+            <p>Параграф на лист от първо ниво</p>
+            <p>Параграф на лист от първо ниво</p>
+        </li>
+        <li>Лист първо ниво
+            <p>Параграф на лист от първо ниво</p>
+            <a href="">Линк на лист от първо ниво</a>
+        </li>
+        <li>Лист първо ниво
+            <a href="">Линк на лист от първо ниво</a>
+        </li>
+        <li>Лист първо ниво
+            <p>Параграф на лист от първо ниво
+                <a href="">Линк в параграф</a>
+
+            </p>
+        </li>
+    </ul>
+</body>
+</html>
