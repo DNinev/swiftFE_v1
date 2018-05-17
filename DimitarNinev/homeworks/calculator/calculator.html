@@ -21,6 +21,7 @@
 			border:2px solid black;
 			width:250px;
 			height:auto;
+			background-color:#E0E0E0;
 		}
 		.allbut{
 			margin:10px;
@@ -39,9 +40,9 @@
 <body>
 	<h1>Calculator</h1>
 	<div class="calculator">
-		<form>
+		<form name="cal">
 			<div class="allbut">
-				<input type="text" placeholder="0." maxlength="9" class="result">
+				<input type="text" placeholder="0." class="result" name="answer">
 				<br/>
 				<input type="button" value="MR" class="buttonM">
 				<input type="button" value="MS" class="buttonM">
@@ -50,35 +51,35 @@
 				<input type="button" value="M-" class="buttonM">
 				<input type="button" value="M" class="buttonM">
 				<br/>
-				<input type="button" value="%" class="button">
+				<input type="button" value="%" class="button" onclick="cal.answer.value=(eval(cal.answer.value)/100)">
 				<input type="button" value="&#8730" class="button">
-				<input type="button" value="x2" class="button">
-				<input type="button" value="&#189" class="button">
+				<input type="button" value="x2" class="button" onclick="cal.answer.value=eval(cal.answer.value*2)">
+				<input type="button" value="x&#189" class="button" onclick="cal.answer.value=eval(cal.answer.value/2)">
 				<br/>
 				<input type="button" value="CE" class="button">
-				<input type="button" value="C" class="button">
+				<input type="button" value="C" class="button" onclick="cal.answer.value = ''">
 				<input type="button" value="&#8656" class="button">
-				<input type="button" value="&#247" class="button">
+				<input type="button" value="&#247" class="button" onclick="cal.answer.value += '/'">
 				<br/>
-				<input type="button" value="7" class="button">
-				<input type="button" value="8" class="button">
-				<input type="button" value="9" class="button">
-				<input type="button" value="&#42" class="button">
+				<input type="button" value="7" class="button" onclick="cal.answer.value += '7'">
+				<input type="button" value="8" class="button" onclick="cal.answer.value += '8'">
+				<input type="button" value="9" class="button" onclick="cal.answer.value += '9'">
+				<input type="button" value="&times" class="button" onclick="cal.answer.value += '*'">
 				<br/>
-				<input type="button" value="4" class="button">
-				<input type="button" value="5" class="button">
-				<input type="button" value="6" class="button">
-				<input type="button" value="&#45" class="button">
+				<input type="button" value="4" class="button" onclick="cal.answer.value += '4'">
+				<input type="button" value="5" class="button" onclick="cal.answer.value += '5'">
+				<input type="button" value="6" class="button" onclick="cal.answer.value += '6'">
+				<input type="button" value="-" class="button" onclick="cal.answer.value += '-'">
 				<br/>
-				<input type="button" value="1" class="button">
-				<input type="button" value="2" class="button">
-				<input type="button" value="3" class="button">
-				<input type="button" value="&#43" class="button"> 
+				<input type="button" value="1" class="button" onclick="cal.answer.value += '1'">
+				<input type="button" value="2" class="button" onclick="cal.answer.value += '2'">
+				<input type="button" value="3" class="button" onclick="cal.answer.value += '3'">
+				<input type="button" value="+" class="button" onclick="cal.answer.value += '+'"> 
 				<br/>
-				<input type="button" value="&#177" class="button">
-				<input type="button" value="0" class="button">
-				<input type="button" value="&#46" class="button">
-				<input type="button" value="=" class="button">
+				<input type="button" value="000" class="button" onclick="cal.answer.value += '000'">
+				<input type="button" value="0" class="button" onclick="cal.answer.value += '0'">
+				<input type="button" value="." class="button" onclick="cal.answer.value += '.'">
+				<input type="button" value="=" class="button" onclick="cal.answer.value = eval(cal.answer.value)">
 			</div>
 		</form>
 	</div>
