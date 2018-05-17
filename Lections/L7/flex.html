@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flex</title>
     <style>
-        body, html {
+        body,
+        html {
             position: relative;
             height: 100%;
             width: 100%;
@@ -23,14 +25,14 @@
             margin-bottom: 40px;
         }
 
-        .base > * {
+        .base>* {
             border: 1px solid #fff;
         }
 
         .small {
             height: 45px;
             width: 45px;
-            background-color:orange;
+            background-color: orange;
         }
 
         .medium {
@@ -42,7 +44,7 @@
         .big {
             height: 100px;
             width: 100px;
-            background-color:brown;
+            background-color: brown;
         }
 
         /*FLEX row*/
@@ -54,18 +56,18 @@
             /* flex-direction: row-reverse; */
         }
 
-        .base > div{
+        .base>div {
             flex-grow: 1;
             flex-shrink: 1;
             flex-basis: 10%;
         }
 
-        .base > .small {
+        .base>.small {
             flex-grow: 0;
             flex-basis: 45px;
         }
 
-        .base > .big {
+        .base>.big {
             flex-grow: 2;
         }
 
@@ -76,12 +78,12 @@
             flex-direction: column;
         }
 
-        .base.column > * {
+        .base.column>* {
             width: 100%;
         }
-
     </style>
 </head>
+
 <body>
     <div class="base">
         <div class="small">Small</div>
@@ -95,14 +97,15 @@
     </div>
 
     <div class="base column">
-            <div class="small">Small</div>
-            <div class="medium">Medium</div>
-            <div class="small">Small</div>
-            <div class="big">Big</div>
-            <div class="medium">Medium</div>
-            <div class="small">Small</div>
-            <div class="medium">Medium</div>
-            <div class="big">Big</div>
-        </div>
+        <div class="small">Small</div>
+        <div class="medium">Medium</div>
+        <div class="small">Small</div>
+        <div class="big">Big</div>
+        <div class="medium">Medium</div>
+        <div class="small">Small</div>
+        <div class="medium">Medium</div>
+        <div class="big">Big</div>
+    </div>
 </body>
+
 </html>
