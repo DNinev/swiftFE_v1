@@ -1,0 +1,45 @@
+<!DOCTYPE html>  
+<html lang="bg-BG">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>CSS possition</title>  
+    <style>  
+    body{  
+        background:white;  
+        margin:0;  
+        padding:0;  
+    } 
+    div{  
+        border: 2px solid black;  
+        display:block; 
+		background:white;
+        width:100px;  
+        height:100px;  
+        margin:10px;  
+        padding:10px;  
+
+    } 
+    #c{  
+        border:none;  
+        background:transparent;  
+        display:block;  
+        width:100%;  
+        height:100%;  
+        margin: 0 auto;  
+    } 
+    #d1{position:relative; top:10px;}  
+    #d2{position:relative; top:25px;}  
+    #d3{position:relative; top:-109px;right:-158px;}  
+    #d4{position:relative; top:-392px;right:-158px;}  
+    #d5{position:relative; top:-447px;right:-78px;}  
+    </style>  
+</head>  
+<body>  
+<div id='c'>  
+    <div id='d1'></div>  
+    <div id='d2'></div>  
+    <div id='d3'></div>  
+    <div id='d4'></div>  
+    <div id='d5'></div>  
+</div>  
+</body>  
