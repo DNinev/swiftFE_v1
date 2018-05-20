@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Homework-2 Forms</title>
+</head>
+
+<header>
+	<h1>Главно заглавие:</h1>
+	<h2>Подзаглавие:</h2>
+</header>
+
+<body>
+	<form>
+		<fieldset>
+			<legend>Основни филтри:</legend>
+			<table>
+				<tr>
+					<td>Име</td>
+					<td>
+						<input type="text" name="firstName1" id="firstName1" placeholder="Име">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Фамилия</td>
+					<td>
+						<input type="text" name="familyName1" id="familyName1" placeholder="Фамилия">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Идентификационен номер</td>
+					<td>
+						<input type="number" name="idNumber1" id="idNumber1" placeholder="Идентификационен номер">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Пол</td>
+					<td>
+						<input type="radio" name="gender" id="checkbox1-1">
+						<span>Мъж</span>
+					</td>
+
+					<td>
+						<input type="radio" name="gender" id="checkbox1-2">
+						<span>Жена</span>
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend>Времеви филтри:</legend>
+			<table>
+				<tr>
+					<td>Начална дата</td>
+					<td>
+						<input type="date" name="startDate" id="startDate" placeholder="Начална дата" min="1900-01-01">
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Крайна дата</td>
+					<td>
+						<input type="date" name="endDate" id="endDate" placeholder="Крайна дата">
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend>Контакти:</legend>
+			<table>
+				<tr>
+					<td>Канал за комуникация</td>
+					<td>
+						<select>
+							<option value="phone">Телефон</option>
+							<option value="mobilePhone">Мобилен Телефон</option>
+							<option value="email">e-mail</option>
+						</select>
+					</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Име</td>
+					<td>
+						<input type="email" name="emailAddress" id="nameBox1" placeholder="example@email.com" autocomplete="on">
+					</td>
+					<td></td>
+				</tr>
+			</table>
+		</fieldset>
+		<button type="submit" value="submit">Търсене</button>
+		<button type="reset" value="reset">Изтриване</button>
+
+
+		<table style="width:100%; border-collapse: collapse;">
+			<tr>
+				<th colspan="9" style="text-align: left; padding: 5px; border:1px solid black;">Резултати:</th>
+			</tr>
+			<tr>
+				<td style="border:1px solid black;">Номер</td>
+				<td style="border:1px solid black;">Име</td>
+				<td style="border:1px solid black;">Фамилия</td>
+				<td style="border:1px solid black;">ИН</td>
+				<td style="border:1px solid black;">Пол</td>
+				<td style="border:1px solid black;">НД</td>
+				<td style="border:1px solid black;">КД</td>
+				<td style="border:1px solid black;">КК</td>
+				<td style="border:1px solid black;">Имейл</td>
+			</tr>
+			<tr>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+			</tr>
+			<tr>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+			</tr>
+			<tr>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+				<td style="border:1px solid black;">&nbsp</td>
+			</tr>
+		</table>
+
+	</form>
+</body>
+
+</html>
