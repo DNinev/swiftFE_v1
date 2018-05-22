@@ -34,10 +34,12 @@ div {
     transition-property: background, border, opacity;
 }
 
-div:hover {
+/*transition example*/
+
+/* div:hover {
     background: royalblue;
-    border-color: purple;
+    border: 3px solid purple;
     opacity: 0.3;
-}
+} */
 
 
