@@ -1,0 +1,24 @@
+Ima 3 varianta za dobavqne na css
+external vanshen
+inline za celiq sheet
+inline stylesheet - na samiq red sas tagovete
+
+NB pri newslatter mojem da izpolzvame inline style
+
+ako ima 2 elementa css koito sa edin sled drug - to ostava posledniqt
+
+ako imame mnogo specifichen clas toi e s predimstvo
+
+polzvame id e dobra praktika
+
+important e mrasna duma v css - problem pri overwrite
+
+s . e clas
+s # e id
+
+
+kak da prepravim ot blok v inline
+
+blok-inline
+
+ctrl+? e comment
