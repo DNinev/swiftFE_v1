@@ -1,0 +1,93 @@
+body{
+	background-image:url("black-images.jpg");
+}
+.buttons{
+	text-align:right;
+	margin-right:25px;
+}
+#vhod, #reg, #forpass, #bsearch{
+	background:#00cc33;
+	border:1px solid white;
+}
+#search{
+	text-align:right;
+	margin-right:25px;
+}
+fieldset{
+	background-image:url("white.jpg");
+	margin-left:25px;
+	margin-right:25px;
+	border:1px solid white;
+	text-align:center;
+}
+.navi{
+	margin-left:25px;
+	margin-right:25px;
+	background-color:#cc0000;
+	height:40px;
+}
+.navi ul{
+	list-style:none;
+	text-align:center;
+	padding:0;
+	margin:0;
+}
+.navi li{
+	display:inline-block;
+}
+.navi a{
+	text-decoration:none;
+	color:black;
+	width:170px;
+	display:block;
+	padding:10px;
+	font-size:18px;
+}
+.navi a:hover{
+	background:#990000;
+}
+.top5{
+	margin:auto;
+	margin-top:30px;
+	width:71%;
+	border:1px solid white;
+}
+#top51{
+	background:url("white.jpg");
+	height:40px;
+	margin:0;
+	padding:16px;
+}
+#top52, #b22{
+	margin:0;
+	padding:25px;
+}
+.bottoml{
+	float:left;
+	width:30%;
+	margin-left:25px;
+	margin-top:30px;
+	height:auto;
+	margin-bottom:30px;
+	border:1px solid white;
+}
+#b1, #b2{
+	background:url("white.jpg");
+	height:40px;
+	margin:0;
+	padding:16px;
+}
+#b12{
+	color:white;
+	padding:20px;
+}
+.bottom2{
+	float:right;
+	width:60%;
+	height:auto;
+	border:1px solid white;
+	margin-top:30px;
+	margin-right:25px;
+	
+}
+
