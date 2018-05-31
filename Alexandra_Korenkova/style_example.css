@@ -71,10 +71,10 @@ a:hover{
 	font-size: 16px;
 }
 .menu{
-	padding: 0 15px;
 	background: #232323;
 }
 .menu_item{
+	position: relative;
 	display: inline-block;
 }
 .menu_item_link{
@@ -82,6 +82,39 @@ a:hover{
 	color: #c0bab6;
 	padding: 32px 20px;
 	text-transform: uppercase;
+}
+.submenu{
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background: #232323;
+	width: 300px;
+	z-index: 2;
+}
+.menu_item:hover .submenu{
+	display: block;
+}
+.submenu li:hover{
+	background: rgba(0,0,0,.7);
+}
+.submenu_third{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 100%;
+	background: #232323;
+	width: 300px;
+	z-index: 2;
+}
+.submenu_item{
+	position: relative;
+}
+.submenu_item:hover .submenu_third{
+	display: block;
+}
+.submenu_third li:hover{
+	background: rgba(0,0,0,.7);
 }
 /********************************************/
 /* SECTION                                  */
@@ -99,6 +132,11 @@ a:hover{
 	text-align: center;
 	padding: 8px;
 	border: 2px solid #d6d6d6;
+	overflow: hidden;
+}
+.section-item:hover .section-item_description{
+	transform: translateY(0);
+	opacity: 1
 }
 .section-item_wrap{
 	position: relative;
@@ -118,6 +156,8 @@ a:hover{
 	margin-top: 50%;
 }
 .section-item_description{
+	opacity: 0;
+	transform: translateY(60px);
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -126,6 +166,7 @@ a:hover{
 	font-size: 12px;
 	padding: 20px;
 	text-transform: uppercase;
+	transition: .4s ease-in-out;
 }
 .section_description{
 	text-align: center;
@@ -150,12 +191,16 @@ a:hover{
 	align-items: flex-start;
 	margin-bottom: 20px;
 }
+.main_item_photo_wrap:hover{
+	transform: scale(1.1);
+}
 .main_item_photo_wrap{
 	position: relative;
 	padding: 8px;
 	border: 2px solid #666;
 	flex-basis: 200px;
 	height: 170px;
+	transition: .3s ease-in-out;
 }
 .main_item_photo{
 	position: relative;
@@ -181,6 +226,28 @@ a:hover{
 	position: relative;
 	display: block;
 	text-align: right;
+}
+.main_item_description_link::before{
+	position: absolute;
+	left: calc(100% + 10px);
+	bottom: 5px;
+	content: '';
+	width: 5px;
+	height: 5px;
+	border-left: 1px solid #ff9900;
+	border-bottom: 1px solid #ff9900;
+	transform: rotate(-136deg);
+}
+.main_item_description_link::after{
+	position: absolute;
+	right: -10px;
+	bottom: 5px;
+	content: '';
+	width: 5px;
+	height: 5px;
+	border-left: 1px solid #ff9900;
+	border-bottom: 1px solid #ff9900;
+	transform: rotate(-136deg);
 }
 /********************************************/
 /* ASIDE                                    */
