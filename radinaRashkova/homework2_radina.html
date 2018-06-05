@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Homework2</title>
+
+	<style>
+
+	table, th, td {
+    border: 1px solid black;
+	border-collapse: collapse;
+	padding: 5px;
+	}
+	
+	th{
+	text-align:left;
+	}
+	
+	td{
+	height: 20px;
+	}
+	
+	</style>
+</head>
+
+<body>
+	<h1>Главно заглавие</h1>
+	<h2> Подзаглавие</h2>
+
+	<form>
+		<fieldset>
+			<legend>Основни филтри :</legend>
+			<p>
+				<label for="Firstname">
+					<span>Име</span>
+					<input type="text" max="20" name="Firstname" id="Firstname" required placeholder="Име">
+				</label>
+			</p>
+			<p>
+				<label for="Familyname">
+					<span>Фамилия</span>
+					<input type="text" max="20" name="Familyname" id="Familyname"required placeholder="Фамилия">
+				</label>
+			</p>
+			<p>
+				<label for="IDnumber">
+					<span>Идентификационен номер</span>
+					<input type="number" name="IDnumber" id="IDnumber" placeholder="№">
+				</label>
+			</p>
+			<p>	
+					<span>Пол</span>
+					<input type="radio" name="Gender" id="Male" value="Male">М
+					<input type="radio" name="Gender" id="Female" value="Female">Ж
+				
+			</p>
+				<label for="Age">
+					<span>Възраст</span>
+					<input type="number" min="20" max="80" name="Age" id="Age" required placeholder="Възраст">
+				</label>
+			<p>
+			</p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Времеви филтри :</legend>
+			<p>
+				<label for="StartDate">
+					<span> Начална дата</span>
+					<input type="date" name="StartDate" id="StartDate">
+				</label>
+			</p>
+			<p>
+				<label for="FinalDate">
+					<span>Крайна дата</span>
+					<input type="date" name="FinalDate" id="FinalDate">
+				</label>
+			</p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>Контакти:</legend>
+			<p>
+				<label for="telNo">
+					<span>Канал за комуникация</span>
+					<input type="tel" name="tel" id="telNo" maxlength="14" placeholder="+359">
+				</label>
+			</p>
+			<p>
+				<label for="email">	
+					<span>Email</span>
+					<input type="email" name="email" id="email" required placeholder="example@domain.com">
+				</label>
+			</p>
+		</fieldset>
+		<p>
+		<button type="submit" value="submit">Търсене</button>
+		<button type="reset" value="reset">Изтриване</button>
+		</p>
+		</form>
+	<table>
+		<tbody>
+		<tr>
+			<td colspan="9" >Резултати:</td>
+		</tr>
+		<tr>
+			<th style="width:70px">Номер</th>
+			<th style="width:140px">Име</th>
+			<th style="width:70px">Фамилия</th>
+			<th style="width:70px">ИН</th>
+			<th style="width:70px">ПОЛ</th>
+			<th style="width:70px">НД</th>
+			<th style="width:70px">КД</th>
+			<th style="width:70px">КК</th>
+			<th style="width:70px">ИМЕЙЛ</th>
+		</tr>
+		
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		</tbody>
+		<tfoot>
+		<!--<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>-->
+		</tfoot>
+		</table>
+			
+		
+</body>
+</html>

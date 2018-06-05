@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>3d-cube</title>
+		<style>
+			body{
+				background:gray;
+			}
+			
+			.container {
+				width:300px;
+				height:300px;
+				perspective:700px;
+				margin:200px auto;
+			}
+			
+			.cube {
+				width:200px;
+				height:200px;
+				position:relative;
+				transform-style:preserve-3d;
+				animation:rotate 15s infinite linear;
+			}
+			
+			.cube div {
+				width:200px;
+				height:200px;
+				position:absolute;
+				background:darkgreen;
+				opacity:0.7;
+				border:2px solid yellow;
+			}
+			
+			.front {transform:translateZ(100px);}
+			
+			.back {transform:rotateX(360deg) translateZ(100px);}
+			
+			.right {transform:rotateY(90deg) translateZ(100px);}
+			
+			.left {transform:rotateY(-90deg) translateZ(100px);}
+			
+			.top {transform:rotateX(90deg) translateZ(100px);}
+			
+			.bottom {transform:rotateX(-90deg) translateZ(100px);}
+			
+			@keyframes rotate {
+				from {transform:rotateX(0deg) rotateY(0deg);}
+				to {transform:rotateX(360deg) rotateY(360deg);}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="cube">
+				<div class="front"></div>
+				<div class="back"></div>
+				<div class="right"></div>
+				<div class="left"></div>
+				<div class="top"></div>
+				<div class="bottom"></div>
+			</div>
+		</div>
+	</body>
+</html>

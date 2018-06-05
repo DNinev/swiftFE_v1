@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>T-shirt space shop</title>
+	</head>
+	
+	<body>
+		<div>
+			<h1>Space shop</h1>
+			
+			<span>
+			<a href="#Space shop">Space shop &gt</a>
+			<a href="#T-shirts">T-shirts &gt</a>
+			<a href="#SpaceX">SpaceX</a>
+			</span>
+			<p>You have selected T-shirts</p>
+		</div>
+		
+		<div>
+			<h2>T-shirt information</h2>
+			
+			<p>Size:
+				<select>
+					<option value="XS">XS</option>
+					<option value="S">S</option>
+					<option value="M">M</option>
+					<option value="L">L</option>
+					<option value="XL">XL</option>
+					<option value="XXL">XXL</option>
+				</select>
+			</p>
+			
+			<p>Color:
+				<select>
+					<option value="Black">Black</option>
+					<option value="Green">Green</option>
+					<option value="Yellow">Yellow</option>
+					<option value="Blue">Blue</option>
+					<option value="Purple">Purple</option>
+					<option value="Red">Red</option>
+					<option value="White">White</option>
+				</select>
+			</p>
+			<form>
+				<span>Variation:</span>
+				<input type="radio" name="gender" value="male" checked> Male
+				<input type="radio" name="gender" value="female"> Female
+			</form>
+		</div>
+		
+		<div>
+		
+			<h2>Delivery information:</h2>
+			
+			<p>City:
+				<select>
+					<option value="Sofia">Sofia</option>
+					<option value="Varna">Varna</option>
+					<option value="Plovdiv">Plovdiv</option>
+					<option value="Rousse">Rousse</option>
+					<option value="Bourgas">Bourgas</option>
+				</select>
+			</p>
+			
+			<form>
+				<span>Address:</span>
+				<textarea name="Address" rows="2"></textarea>
+			</form><br>
+			<form>
+				<span>Person to receive the package:</span>
+				<input type="text" name="Person to receive the package">
+			</form>
+		</div><br>
+		
+		<button onclick="GoBack">Go Back</button>
+		<button onclick="PlaceOrder">Place Order</button>
+		
+	</body>
+
+</html>
