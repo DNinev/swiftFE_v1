@@ -1,63 +1,1134 @@
-/*Variables*/
 
-@text-color-primary: #333;
-@text-color-secondary: #fff;
+.gradient(@type; @colors; @dir: 90deg; @prefixes: webkit, moz, ms, o; @index: length(@prefixes)) when (@index > 0) {
+    .gradient(@type; @colors; @dir; @prefixes; (@index - 1));
+    @prefix: extract(@prefixes, @index);
+    @dir-old: 90 - (@dir);
 
-@background-color-primary: #fff;
-@background-color-secondary: #333;
+    background-image: ~"-@{prefix}-@{type}-gradient(@{dir-old}, @{colors})";
+
+    & when ( @index = length(@prefixes) ) {
+        background-image: ~"@{type}-gradient(@{dir}, @{colors})";
+    }
+}
+
+// ======================================================================================
+// Variables
+// ======================================================================================
+
+// Elements
+
+@Element_Color1: #e5e5e5;
+@Element_Color2: #292c34; //Transparency -- fade(@Element_Color2,80%)
+@Element_Color3: #ccc;
+@Element_Color4: #fff;
+@Element_Color5: #1c1f24;
+@Element_Color6: #464b58; //Hover -- darken(@Element_Color6, 7%)
+@Element_Color7: #FF3366; //Hover -- lighten(@Element_Color7, 2.5%)
+@Element_Color8: #ebebeb; //Hover -- darken(@Element_Color8, 6%)
+@Element_Color9: #6b6f79;
+@Element_Color10: #f9f9f9;
+@Element_Color11: #999;
+@Element_Color12: #ff7500; //Hover -- darken(@Element_Color12, 4%)
+@Element_Color13: #363a45;
+@Element_Color14: #0e0e0e;
+@Element_Color15: #f59120;
+@Element_Color16: #f20000;
+@Element_Color17: #359e02;
 
 
-/*Resets*/
+// Texts
 
-html, body {
-    height: 100%;
-    width: 100%;
+@Text_Color1: #ff7500;
+@Text_Color2: #000;
+@Text_Color3: #666;
+@Text_Color4: #fff; 
+@Text_Color5: #999;
+@Text_Color6: #444;
+@Text_Color7: #3F48CC;
+
+
+// Desktop Layout
+
+@chatWindow_width: 350px;
+@chatWindow_height: 500px;
+@chatWindow_backgroundColor: @Element_Color12;
+
+// Desktop Main Styles
+
+@chat_default_font: 'Tahoma Regular', sans-serif;
+@chat_default_fontSize: 12px;
+@form_default_fontSize: 14px;
+@chat_default_borderRounding: 5px;
+@chat_default_borderColor: #558900;
+@chat_default_border: 1px solid @chat_default_borderColor;
+
+// Desktop Header
+
+@banner_height: 50px;
+@banner_background-color: #dddfe0;
+@banner_menuButton_width: 50px;
+@banner_menuButton_height: 50px;
+@banner_menuButton_margin: 5px;
+
+@menu_width: 120px;
+@menu-list-height: 46px;
+
+// Desktop Discussion Page
+// Outgoing
+
+@chatMessage_outgoing_backgroundColor: @Element_Color4;
+@chatMessage_outgoing_textFontColor: @Text_Color2;
+@chatMessage_outgoing_senderFontColor: @Text_Color2;
+
+// Incoming
+@chatMessage_incoming_backgroundColor: @Element_Color3;
+@chatMessage_incoming_textFontColor: @Text_Color2;
+@chatMessage_incoming_senderFontColor: @Text_Color2;
+//@chatMessage_system_incoming_backgroundColor: @Text_Color2;
+
+// Input area
+@notifcationArea_height: 20px;
+@messageArea_height: 64px;
+
+@sendButton_width: 68px;
+@sendButton_height: 54px;
+
+@sendButton_fontSize: 16px;
+@sendButton_fontColor: @Text_Color2;
+
+// Utils
+
+html, body { // NOTE: temp solution to stretch dropable zone
     margin: 0;
-    padding: 0;
-    color: @text-color-primary;
-    background-color: @background-color-primary;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+  	-webkit-text-size-adjust: 100%;
 }
 
 * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-a {
-    
+.sbHidden {
+    display: none!important;
+}
+
+.textAlignRight {
+    text-align: right;
+}
+
+.error {
+    color: @Element_Color16;
+    font-weight: 600;
+}
+
+.inputError {
+    outline: 1px solid @Element_Color16 !important;
+}
+
+// ======================================================================================
+// Desktop Discussion starts
+// ======================================================================================
+
+#sbChatInnerContainer {
+    width: @chatWindow_width;
+    height: @chatWindow_height;
+    background-color: @chatWindow_backgroundColor;
+
+    #sbChatBanner {
+        height: @banner_height;
+        background: @Element_Color4;
+
+        &.isDraggable {
+            cursor: move;
+        }
+    }
+
+    #sbChatBannerLogo {
+        display: inline-block;
+        position: relative;
+        height: @banner_height;
+        width: 90px;
+        margin-left: 10px;
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAAWCAYAAAC8J6DfAAAACXBIWXMAAC4jAAAuIwF4pT92AAAHMmlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoV2luZG93cykiIHhtcDpDcmVhdGVEYXRlPSIyMDE4LTA0LTE4VDEwOjUwOjM2KzAzOjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAxOC0wNC0xOFQxMToxMToxOSswMzowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAxOC0wNC0xOFQxMToxMToxOSswMzowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcDpJQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowYjU0YWNhYi01MmQ0LWU1NGUtYjExOS1jZmYxY2YwM2Y2MGMiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo4NmZlNWVjMi1lYTc1LWM5NGEtYWJkOC00ZDliYjFlZGQyODkiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDozYmMyYWNhYy1jMTIyLWVkNDMtYmZmNi05YzcwMjAxYjE5YzgiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjNiYzJhY2FjLWMxMjItZWQ0My1iZmY2LTljNzAyMDFiMTljOCIgc3RFdnQ6d2hlbj0iMjAxOC0wNC0xOFQxMDo1MDozNiswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjb252ZXJ0ZWQiIHN0RXZ0OnBhcmFtZXRlcnM9ImZyb20gYXBwbGljYXRpb24vdm5kLmFkb2JlLnBob3Rvc2hvcCB0byBpbWFnZS9wbmciLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ2Y2I0ZGMyLTFiYzMtNzU0MS1hMThhLTU5ZjlkMzA3M2U1NiIgc3RFdnQ6d2hlbj0iMjAxOC0wNC0xOFQxMDo1MToxNCswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDowYjU0YWNhYi01MmQ0LWU1NGUtYjExOS1jZmYxY2YwM2Y2MGMiIHN0RXZ0OndoZW49IjIwMTgtMDQtMThUMTE6MTE6MTkrMDM6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSIgc3RFdnQ6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') no-repeat center center;
+    }
+
+    #sbMenuButton {
+        float: right;
+        width: @banner_menuButton_width - @banner_menuButton_margin*2;
+        height: @banner_menuButton_height - @banner_menuButton_margin*2;
+        margin: @banner_menuButton_margin;
+        padding: 0;
+        background: rgba(0,0,0,0.0);
+        border: 1px solid rgba(255, 255, 255, 0);
+        outline: none;
+
+        div {
+            width: 38px;
+            height: 38px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABKSURBVFiF7dNBCoAwEATBKD48vtx8QIYIuopUXfewfZnWAOATlnDrRQ2nf1LY8UzHXMNa9PyyLdz2sgpuYJWBVfIKqwysEgD+ZACBZAecIt87mAAAAABJRU5ErkJggg==) no-repeat center center;
+            background-size: 70% 70%;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+    }
+
+    #sbChatUndraggable, #sbDiscussion {
+        height: ~"calc(100% - 50px)";
+    }
+
+    #sbDiscussion {
+        padding: 6px 8px 0 8px;
+        overflow-y: auto;
+        max-height: @chatWindow_height - @messageArea_height - @banner_height - @notifcationArea_height;
+        margin: 0;
+        font-family: @chat_default_font;
+        -webkit-overflow-scrolling: touch;
+
+        div {
+            white-space: pre-wrap; // css-3
+            white-space: -moz-pre-wrap; // Mozilla, since 1999
+            white-space: -pre-wrap; // Opera 4-6
+            white-space: -o-pre-wrap; // Opera 7
+            word-wrap: break-word; // Internet Explorer 5.5+
+            -ms-word-wrap: break-word;
+        }
+
+        .sbChatMessage {
+            /*border: 1px solid red;*/
+            border-radius: 9px;
+            padding: 9px 20px 9px 9px;
+            margin-bottom: 9px;
+            width: 85%;
+            //PLAT-12909- Add acknowledgement icon on player text message
+            //.sbStatusIndicator stays for the check sign and it's color is changed green on line 202 - 206 when message is delivered, or grey when status is Unknown on line 216-224;
+            //.sbStatusIndicator::before/after stays for the cross sign and it's color is changed red when status is Failed on line 207-214;This also is changing the color of the message text,sent time and player name;
+            & .sbStatusIndicator {
+                position: absolute;
+                bottom: 12px;
+                right: 7px;
+                left: auto;
+                display: inline-block;
+                width: 8px;
+                height: 4px;
+                border-bottom: 1px solid transparent;
+                border-left: 1px solid transparent;
+                transform: rotate(-45deg);
+            }
+
+            .sbStatusIndicator::before {
+                content: "";
+                position: absolute;
+                top: -6px;
+                left: -3.5px;
+                width: 9px;
+                height: 9px;
+                border-bottom: 1px solid transparent;
+            }
+
+            .sbStatusIndicator::after {
+                content: "";
+                position: absolute;
+                top: -2px;
+                right: -2px;
+                left: 1px;
+                width: 9px;
+                height: 9px;
+                border-bottom: 1px solid transparent;
+                transform: rotate(90deg);
+            }
+
+
+            &[data-delivery-status='Delivered'] * {
+                border-color: @Element_Color12;
+            }
+
+            &[data-delivery-status='Failed'] * {
+                border-color: @Element_Color16;
+            }
+
+            &[data-delivery-status='Unknown'] * {
+                border-color: @Text_Color5;
+            }
+        }
+
+        .sbChatMessage_last {
+            margin-bottom: 0;
+        }
+
+        .sb {
+            font-family: 'Segoe UI';
+            font-weight: 400;
+        }
+
+        .sbMessageSentTime {
+            display: inline-block;
+            vertical-align: top;
+            font-size: @chat_default_fontSize;
+            margin: 0 3px 0 0;
+            height: 100%;
+        }
+
+        .sbOutgoingMessage {
+            position: relative;
+            background-color: @chatMessage_outgoing_backgroundColor;
+            border: @chatMessage_outgoing_backgroundColor;
+            border-top-right-radius: 0;
+            margin-right: 10px;
+            float: right;
+
+            .sbPlayerName {
+                font-size: @chat_default_fontSize;
+                display: inline-block;
+                vertical-align: top;
+                color: @chatMessage_outgoing_senderFontColor;
+                opacity: 0.7;
+            }
+
+            .sbMessageText {
+                color: @Text_Color2;
+                font-size: @chat_default_fontSize;
+            }
+
+            .sbMessageSentTime {
+                color: @chatMessage_outgoing_senderFontColor;
+                opacity: 0.7;
+            }
+
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 16px 16px 0 0;
+                border-color: @chatMessage_outgoing_backgroundColor transparent transparent transparent;
+                position: absolute;
+                top: 0;
+                right: -16px;
+            }
+
+            &:after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 15px 15px 0 0;
+                border-color: @chatMessage_outgoing_backgroundColor transparent transparent transparent;
+                position: absolute;
+                top: 0;
+                right: -13px;
+            }
+        }
+
+        .sbIncomingMessage {
+            position: relative;
+            background-color: @chatMessage_incoming_backgroundColor;
+            border: @chatMessage_incoming_backgroundColor;
+            border-top-left-radius: 0;
+            float: left;
+            margin-left: 10px;
+
+
+            .sbAgentName {
+                .newMessageTextStyle;
+                color: @chatMessage_incoming_senderFontColor;
+                vertical-align: top;
+            }
+
+            .sbMessageText {
+                .newMessageTextStyle;
+                color: @chatMessage_incoming_textFontColor;
+            }
+
+            .sbMessageSentTime,
+            .sbSenderName.sbAgentName {
+                vertical-align: top;
+                color: @chatMessage_incoming_senderFontColor;
+                opacity: 0.7;
+            }
+
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 16px 16px 0;
+                border-color: transparent @chatMessage_incoming_backgroundColor transparent transparent;
+                position: absolute;
+                top: 0;
+                left: -16px;
+            }
+
+            &:after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 15px 15px 0;
+                border-color: transparent @chatMessage_incoming_backgroundColor transparent transparent;
+                position: absolute;
+                top: 0;
+                left: -13px;
+            }
+        }
+
+        .sbMessageText + br {
+            display: none;
+        }
+    }
+
+    #sbNotificationArea {
+        padding: 4px 4px 0 8px;
+        height: @notifcationArea_height;
+        width: 100%;
+        position: absolute;
+        bottom: @messageArea_height;
+        font-family: Arial,sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        color: @Text_Color6;
+    }
+
+    #sbInputArea {
+        ::-webkit-input-placeholder {
+            .newMessageTextStyle;
+            color: @Text_Color3
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            .newMessageTextStyle;
+            color: @Text_Color3
+        }
+
+        ::-moz-placeholder { /* Firefox 19+ */
+            .newMessageTextStyle;
+            color: @Text_Color3
+        }
+
+        :-ms-input-placeholder {
+            .newMessageTextStyle;
+            color: @Text_Color3
+        }
+
+        display: flex;
+        padding: 5px;
+        height: @messageArea_height;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+
+        #sbMessage {
+            flex-grow: 1;
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+            width: auto;
+            resize: none;
+            .newMessageTextStyle;
+            border: 1px solid #fff;
+            border-radius: @chat_default_borderRounding;
+            padding: 5px;
+            outline: none;
+        }
+
+        #sbSendMessage {
+            flex-grow: 0;
+            width: auto;
+            padding: 0 14px;
+        }
+
+        > * + * {
+            margin-left: 5px;
+        }
+    }
+
+    .newMessageTextStyle {
+        font-family: @chat_default_font;
+        font-size: @chat_default_fontSize;
+    }
+
+    #sbInnerOverlay {
+        position: absolute;
+        display: block;
+        top: @banner_height;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background-color: #000;
+        opacity: 0.7;
+
+        &.sbHidden {
+            display: none;
+        }
+    }
+
+    #sbMenu {
+        position: fixed;
+        top: @banner_height;
+        right: 0;
+        width: @menu_width;
+        z-index: 2;
+
+        ul {
+            list-style-type: none;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+
+            li {
+        		position: relative;
+                height: @menu-list-height;
+                padding-left: 15px;
+                background-color: @Element_Color4;
+
+                .newMessageTextStyle;
+                color: @Text_Color2;
+        		line-height: @menu-list-height;
+                text-align: left;
+
+                border: none;
+                cursor: pointer;
+        		overflow: hidden;
+
+                &:first-child {
+                    box-shadow: inset 0px 3px 9px -5px #3e3e3e;
+                }
+
+                &:last-child {
+                    border-bottom-right-radius: @chat_default_borderRounding;
+                    border-bottom-left-radius: @chat_default_borderRounding;
+                }
+
+                &:hover,
+                &:active {
+                    background-color: @Element_Color12;
+          			border-color: @Element_Color12;
+                    color: @Text_Color4;
+                }
+
+                &.disbledMenuItem {
+                    color: darkgray;
+
+                    &:hover {
+                        color: #cccccc;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ======================================================================================
+// BUTTONS
+// ======================================================================================
+
+.btn, input[type="button"] 
+{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px 15px;
+    background-color: @Element_Color4;
+    color: @sendButton_fontColor;
+    font-size: @sendButton_fontSize;
+    border-radius: @chat_default_borderRounding;
+    border: 1px solid @Element_Color4;
+    cursor: pointer;
+    outline: none;
+
+    &:hover { background-color: @Element_Color8; }
+
+    &::-moz-focus-inner {
+        border: none;
+    }
+
+    &.disabledState {
+        background: @Element_Color11;
+        pointer-events: none;
+        cursor: default;
+        color: @Text_Color3;
+        border: 1px solid @Element_Color11;
+    }
+}
+
+
+.linkBtn {
+    color: @Text_Color4;
     text-decoration: none;
-    color: @text-color-secondary;
 
     &:hover {
-        color: darken(@text-color-secondary, 30%);
+        text-decoration: underline;
     }
 }
 
-/*Utils*/
-
-.clear-fix {
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-}
-
-.float-right {
+#sbGuestTranscriptSendButton, #sbEmailViewSendButton, #sbSurveySendButton {
     float: right;
 }
 
-.float-left {
-    float: left;
+// ======================================================================================
+// Mobile View
+// ======================================================================================
+
+.sbMobileView {
+    &#sbChatInnerContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+
+
+        #sbChatUndraggable, #sbDiscussion {
+            height: ~"calc(100% - 98px)";
+        }
+
+        #sbEmailViewFormContainer .textField.error,
+        #sbEmailViewFormContainer .mailField.error {
+            max-width: none;
+        }
+
+        #sbChatBanner {
+            display: table;
+            width: 100%;
+            height: auto;
+            padding: 0 2px;
+        }
+
+        #sbChatBannerInfo {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+
+            .bannerInfoName {
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 5px;
+                font-size: 18px;
+                line-height: 20px;
+                font-family: 'Tahoma Regular', sans-serif;
+                color: @Element_Color12;
+            }
+        }
+
+        & #sbDiscussionMsgWrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 100%;
+        }
+
+        #sbMenuButton {
+            display: table-cell;
+            vertical-align: middle;
+            float: none;
+            width: 40px;
+
+
+            div {
+                height: 28px;
+                width: 40px;
+                border-radius: 4px;
+            }
+        }
+
+        #sbMinimizeMenuItem {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            height: 40px;
+            width: 40px;
+        }
+
+        #sbChatBannerLogo {
+            display: none !important;
+        }
+
+        #sbDiscussion {
+            position: absolute;
+            top: 40px;
+            bottom: 58px;
+            left: 0;
+            width: 100%;
+            max-height: none;
+            overflow-y: scroll;
+
+            .sbChatMessage {
+                padding: 0;
+                float: none !important;
+                width: 99%;
+            }
+
+            .sbIncomingMessage {
+                background-color: transparent;
+                border-color: transparent;
+                word-break: break-word;
+                padding-right: 15%;
+
+                .sbMessageText {
+                    display: inline-block;
+                    font-size: 14px;
+                    background-color: @Element_Color3;
+                    color: @Text_Color2;
+                    padding: 6px 9px;
+                    border-radius: 4px;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        border-top: 7px solid transparent;
+                        border-bottom: 7px solid transparent;
+                        border-right: 10px solid @Element_Color3;
+                        left: -6px;
+                        bottom: 4px;
+                    }
+                }
+
+                .sbMessageSentTime,
+                .sbAgentName {
+                    color: @Text_Color2;
+                }
+
+                &:after {
+                    display: none;
+                }
+
+                &:before {
+                    display: none;
+                }
+            }
+
+            .sbOutgoingMessage {
+                background-color: transparent;
+                border-color: transparent;
+                text-align: right;
+                word-break: break-word;
+                padding-left: 15%;
+
+                .sbMessageText {
+                    display: inline-block;
+                    font-size: 14px;
+                    text-align: left;
+                    background-color: @Element_Color4;
+                    color: @Text_Color2;
+                    padding: 6px 20px 6px 9px;
+                    border-radius: 4px;
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        width: 0;
+                        height: 0;
+                        border-top: 7px solid transparent;
+                        border-bottom: 7px solid transparent;
+                        border-left: 10px solid @Element_Color4;
+                        right: -6px;
+                        bottom: 4px;
+                    }
+                }
+
+                .sbMessageSentTime,
+                .sbPlayerName {
+                    color: @Text_Color2;
+                    opacity: 0.7;
+                }
+
+                &:after {
+                    display: none;
+                }
+
+                &:before {
+                    display: none;
+                }
+            }
+        }
+
+        #sbMenu 
+        {
+            width: auto;
+            top: 40px;
+            right: 0;
+            left: 0;
+
+            li  
+            {
+                border-radius: 0;
+                font-size: 14px;
+
+                &:first-child 
+                {
+                    border-top: 1px solid @Element_Color8;
+                }
+
+                &:last-child 
+                {
+                    border-radius: 0;
+                }
+            }
+
+            input[type="file"] {
+                width: 100%;
+            }
+        }
+
+        #sbNotificationArea {
+            bottom: 38px;
+            padding: 5px 0 0 15px;
+            font-size: 11px;
+        }
+
+        #sbInputArea {
+            height: 38px;
+            padding: 0 0 0 15px;
+            border-top: 1px solid @Element_Color11;
+            background: @Element_Color4;
+
+
+            #sbMessage {
+                width: 100%;
+                height: 24px;
+                margin: 6px 0 6px 0;
+                border: transparent;
+                background: transparent;
+                padding: 0 55px 0 0;
+                color: @Text_Color2;
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            #sbSendMessage {
+                position: absolute;
+                right: 5px;
+                top: 2px;
+                bottom: 2px;
+                height: auto;
+                width: auto;
+                padding: 5px 8px;
+                font-size: 14px;
+                font-weight: 600;
+                background-image: none;
+                border-radius: 2px;
+                -webkit-appearance: none;
+                border: 0;
+                color: #fff;
+                background: @Element_Color12;
+            }
+        }
+    }
+
+    .sbChatHeaderIcon {
+        display: inline-block;
+        vertical-align: middle;
+        height: 24px;
+        width: 24px;
+        background-repeat: no-repeat;
+        background-size: contain !important;
+        padding: 5px;
+    }
+
+    .sbChatMenuIcon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        height: 22px;
+        width: 20px;
+        background-size: contain !important;
+    }
+
+    .minimizeIcon {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADOSURBVEiJ7dVdCoJAFIbh19F1SLgRkZYRCXUhtaLCm8BoGSJtRMR1pNNNBvlTzs9N1Hc5DOdhzhlm4Nvj9BeSDB+HzBVsDytKU0CMkBkQNpJ8d2JhH5DEQIlk0Xpc9xcCE2DQIni2qQACoHYFkW67RgGbyCRgC3kLqCDJGQmQrl9rDofcSxpTI4mAEvCblkJl8B8BU2QWYILMBnQRJUAHUQY6RNxY4lABfiPJrQIAxw0VLSGPZ2Vqnze3YHfPVaN9gt/J8EfT7HUX5bfonzvb1V8e8br9JQAAAABJRU5ErkJggg==);
+        background-repeat: no-repeat;
+    }
+
+    .bubbleIcon {
+        margin-top: 3px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACmSURBVEiJ1ZLBDcIwDEWfK8YoA7EDBU6do0yB4EbLDgxU5sCckhaVoiBsQf4pdqz3bSeQuyQcNhdWopyA8kvmTYW6XXMFKGJaORjAAUq5cwxBNBBYGsADLLKKd3UWWsxdnKvhfVK07dBX+d9NMNeRmYHHij4Cpup/V5TaQP6/yH0CHwOl9zNQehHqEI7fQIYamrZib+E3mcASPjGwhj9p19G4gLPXA5tqKIcfwrRJAAAAAElFTkSuQmCC);
+        background-repeat: no-repeat;
+    }
+
+    .sendFileIcon {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGz2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBQkQ3OEY3MUQxMjE2ODExODA4M0VENTFDRThBNUFGMyIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjU3OTIxYjM5LWQ2ZTQtZjQ0OS05OTY1LWFhMDcyMDE5Njg2ZiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2MTQwOTk2MS00ODgwLTdkNGYtYTM1Yi1kNmEwZTNlY2Y0MjYiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTgtMDUtMDJUMDk6MTI6NTErMDM6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDE4LTA1LTAyVDA5OjE3OjU1KzAzOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDE4LTA1LTAyVDA5OjE3OjU1KzAzOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6YjZiOGQ3NWEtMTQ5ZC1hMjQ4LWI0MTItNDI5MDA4OTEzNmIxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkFCRDc4RjcxRDEyMTY4MTE4MDgzRUQ1MUNFOEE1QUYzIi8+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmU0NzJjZGJiLWE5ZTEtZjg0YS1hMjM3LTJiZTU5NjEwYTc3NSIgc3RFdnQ6d2hlbj0iMjAxOC0wNS0wMlQwOToxNzo1NSswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MTQwOTk2MS00ODgwLTdkNGYtYTM1Yi1kNmEwZTNlY2Y0MjYiIHN0RXZ0OndoZW49IjIwMTgtMDUtMDJUMDk6MTc6NTUrMDM6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4bp4eHAAACJ0lEQVRYhe3Yu2tUURDH8U+MAVFDSFC00FL/ALGx0ib4JEKUpFDQQoUgPkAUFESwSwoFUVOkClpoVNQiiiAKvgpFrALa618gPsFcizvL3mx2c3fXbNxif3CLnZkz57tz9s4Zti1JEs2kRf8boFQtoDy1gPLUdEAwjqRJnvE2/FGs1Biuo1PjqzeNrziCoYxNggk8xk9sbjBIVpvwHU9xL1gkOIMlmIrP+xcAZiD2+ohlOJ0FGomgLrwJ29DsHPOmw7HHO/TE9TWSBRrOBPfgQ9iPNQBmKHJPYUWSJAJouBIQaaVehO9EA2BeoxuqBYJ2PAz/2XmAORW5JtFRMNYCRPrqT0bMxX+AOR85nmRh6gEqQE1E3IU6YM7F2vtYXOqsB6igKxF7tQaYy7FmtFJAKVAt3bhQ6qMBl6dLOBlAHXOHFjWrhBViHmAntkiP8Jn0TTxQYc0YDqFX2v1fYi368Ctvw7mOrB3PI6Y/Y+8L2+0ya26Gb2/GtkuxES6fsXkNv6EOPAr/YBn/YPhuSXtKN26EbV+Z+D3he4WltQJ1SZtXEt+ukrbiN77EM41tc8Rvj5zvsbpaoJXSC6/0mCppnXRkuYb1VcTvjtyfsaYSUPZyfRu2gSqS16t+xftsVbnLtXT82NFAmIJ6Y69P0kLMGD/uSNv6D2xcAJiCNuCbtI3cRVI6wo5Ke0gn2hoMk0hH2IM4HrZpmm3Ib/3ZkKMWUJ5aQHlqOqC/rsMoGQPDmHAAAAAASUVORK5CYII=);
+    }
+
+    .closeIcon {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAACXBIWXMAAAsTAAALEwEAmpwYAAAGz2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpBQkQ3OEY3MUQxMjE2ODExODA4M0VENTFDRThBNUFGMyIgeG1wTU06RG9jdW1lbnRJRD0iYWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOjEwYmFkYzM0LTBiMDYtMDE0My1hOTdmLWM1Nzk0OTcyMDY5NSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpjZmE2MjkzMC1jMDI2LWJjNDYtYmI3YS0zNDgxZTMyZTNiODUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTgtMDUtMDJUMDk6MTI6MTUrMDM6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDE4LTA1LTAyVDA5OjE3OjM4KzAzOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDE4LTA1LTAyVDA5OjE3OjM4KzAzOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6YjZiOGQ3NWEtMTQ5ZC1hMjQ4LWI0MTItNDI5MDA4OTEzNmIxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkFCRDc4RjcxRDEyMTY4MTE4MDgzRUQ1MUNFOEE1QUYzIi8+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmZjNzQzOWJiLTcxMGQtN2Y0OC1iNWU4LWY1OWE1YzljNDhkNSIgc3RFdnQ6d2hlbj0iMjAxOC0wNS0wMlQwOToxNzozOCswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpjZmE2MjkzMC1jMDI2LWJjNDYtYmI3YS0zNDgxZTMyZTNiODUiIHN0RXZ0OndoZW49IjIwMTgtMDUtMDJUMDk6MTc6MzgrMDM6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4K2wM+AAABbUlEQVRYhe2XS0vDQBCAvzG0toqIgv/Mg+Lj4h+rtj576aUe9IcJiqwHU0iXfc2s0AoZ2Euymf2y32aGiHOObYqdTQP40QPlogfKRRJIRC5FZCYiB7ULichYRKYicpOc6JwLDuAc+AIc8Absx+bmBjAClm2ub+A6OjeR5LZNsBqvwNgAMwQWXq4nC9AhMPcSLYBdBcwgkuNIDZR4u/cSfZ6m1VgCo+RzBYkb4EGjL/Iic2CQXa9w65tSfQlNw6K1Kg/nmj6rJhNQSl/nvkmTGSih7xm4t2qqAkroM2uqBuqA3QVgHmty1jbXpvBaeRh3JvQ1qYvnXx3q0PmZAhPvmq33KWGCRa9zv6r3qYAimta+psjuqfTVaAoWPQy9TwUU00Si6KHofSqgEk3KXc3qSyU8LtWU2amQvhML0EyjSanvxQJ0CnxoNBXq+wTOrGfogt+Ct2eF8c7jBLhKzZN28tbE//pz3UT0QLnYOqAfgIPhtkobH20AAAAASUVORK5CYII=);
+    }
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0,0,0,.5);
+        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    }
+
+    .sbChatSubPage {
+        top: @banner_height;
+        right: 0;
+        max-height: 100vh;
+    }
+
+    .sbChatSubPage .mailField,
+    .sbChatSubPage .textField {
+        margin-bottom: 20px !important;
+    }
+
+    #sbGuestTranscriptErrorMessage {
+        margin: 0 !important;
+    }
+
+    &.sbChatMobileView_landscape {
+        #sbGuestTranscriptCloseButton {
+            bottom: -30px;
+            padding-bottom: 20px !important;
+        }
+    }
 }
 
-/*Page styles*/
+// ======================================================================================
+// Pages Styles - Email View and Pre Chat Survey Pages
+// ======================================================================================
 
-header {
-    background-color: @background-color-secondary;
-    color: @text-color-secondary;
+.sbChatSubPage {
+    width: 100%;
+    position: absolute;
+    top: @banner_height;
+    bottom: 0;
+    left: 0;
+    padding: 20px !important;
+    font-family: 'Tahoma Regular', sans-serif;
+    color: @Text_Color4;
+    background-color: @Element_Color12;
+    overflow: auto;
+
+    span {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 87px;
+        word-break: break-word;
+        color: @Text_Color4;
+    }
+
+    .textField, .mailField {
+        font-size: @form_default_fontSize;
+        margin-bottom: 20px !important;
+
+        &.error {
+            display: inline-block;
+            line-height: 20px;
+            max-width: 155px;
+        }
+    }
+
+    .textArea {
+        font-size: @form_default_fontSize;
+
+        &.last {
+            margin-bottom: 165px !important;
+        }
+
+        textarea {
+            margin-bottom: 20px !important;
+            min-height: 160px;
+            vertical-align: middle;
+            display: inline-block;
+            height: 100%;
+            width: 70%;
+            resize: none;
+            border: 1px solid @Element_Color4;
+            padding: 5px;
+            outline: none;
+            float: right;
+            font-family: Arial, sans-serif;
+
+            &.required {
+                border: 1px solid @Element_Color16;
+            }
+        }
+    }
+
+    input[type="email"], input[type="text"], select {
+        display: inline-block;
+        vertical-align: middle;
+        width: 70%;
+        padding: 2px;
+        border: 1px solid @Element_Color4;
+        float: right;
+
+        &:focus {
+            border: 1px solid @Element_Color12;
+            outline: none;
+        }
+
+        &.required {
+            border: 1px solid @Element_Color16;
+        }
+    }
+
+    .sbChatSubPageBottom {
+        position: absolute;
+        bottom: 15px;
+        right: 0;
+        left: 0;
+        text-align: right;
+
+        .linkBtn {
+            position: relative;
+            right: 20px;
+        }
+    }
 }
 
-footer {
-    background-color: @background-color-secondary;
-    color: @text-color-secondary;
+#sbSurveyWelcomeMessageLabel, #sbEmailViewHeaderMessage {
+    color: @Text_Color4;
+}
+
+#sbChatInnerContainer.sbMobileView {
+    .sbChatSubPageBottom {
+        position: relative;
+        clear: both;
+        top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .linkBtn {
+        right: auto;
+    }
+}
+
+// ======================================================================================
+// Right to Left customizations
+// ======================================================================================
+
+#sbChatInnerContainer.rtl {
+    #sbDiscussion .sbChatMessage {
+        padding: 9px 9px 9px 20px;
+
+        & .sbStatusIndicator {
+            left: 7px;
+            right: auto;
+
+            &::after {
+                left: auto;
+            }
+        }
+    }
+
+    #sbChatUndraggable {
+        direction: rtl;
+
+        span.sbMessageSentTime {
+            margin: 0 3px 0 3px;
+        }
+    }
+
+    #sbNotificationArea {
+        padding: 4px 8px 0 4px;
+    }
+
+    #sbMenu {
+        direction: rtl;
+
+        li {
+            text-align: right;
+        }
+    }
+
+    #sbTranscriptToGuestContainer {
+        direction: rtl;
+
+        #sbGuestTranscriptEmail, #sbGuestTranscriptSendButton {
+            float: left;
+        }
+
+        #sbGuestTranscriptCloseButton {
+            float: left;
+            margin-left: 22px;
+            right: inherit;
+        }
+    }
+
+    #sbEmailViewContainer {
+        direction: rtl;
+
+        #sbEmailViewBody, #sbEmailViewSubject, #sbEmailViewSendButton, #sbEmailViewEmail {
+            float: left;
+        }
+
+        #sbEmailViewCloseButton {
+            float: left;
+            margin-left: 22px;
+            right: inherit;
+        }
+    }
+
+    &.sbMobileView {
+        #sbMenu {
+            span.sbChatMenuIcon {
+                margin-left: 10px;
+                margin-right: 0px;
+            }
+        }
+
+        #sbChatUndraggable {
+            div.sbIncomingMessage {
+
+                div.sbChatMessage-header {
+                    float: left;
+                }
+
+                div.sbMessageText {
+                    clear: both;
+                    float: left;
+                }
+            }
+
+            div.sbOutgoingMessage {
+                div.sbMessageText {
+                    text-align: right;
+                }
+            }
+
+            #sbMessage {
+                padding-right: initial;
+                padding-left: 55px;
+            }
+
+            #sbSendMessage {
+                left: 5px;
+                right: initial;
+            }
+
+            #sbNotificationArea {
+                padding: 5px 15px 0 0;
+            }
+
+            #sbInputArea {
+                padding: 0 15px 0 0;
+            }
+        }
+    }
+}
+
+
+.fileUpload {
+
+    input[type="file"] {
+		    position: absolute;
+    		top: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+            cursor: pointer;
+    }
 }
