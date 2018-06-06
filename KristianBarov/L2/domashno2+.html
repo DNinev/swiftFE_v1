@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Forms</title>
+	<link rel="stylesheet" href="domashno2+">
+	<style>
+			table,
+			th,
+			td {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+	
+			th,
+			td {
+				padding: 10px;
+				text-align: left;
+			}
+		</style>
+</head>
+<body>
+	<header>
+		<h1>ГЛАВНО ЗАГЛАВИЕ</h1>
+		<h2>ПОДЗАГЛАВИЕ</h2>
+	</header>
+	<main>
+	<form style="width: 50%">
+		<fieldset>
+			<legend> Основни филтри: </legend>
+			<p>
+				<label for="Name">Име:</label>
+				<input id="Name" name="Name" type="text">
+			</p>
+			<p>
+				<label for="Famili">Фамилия:</label>
+				<input id="Famili" name="Famili" type="text">
+			</p>
+			<p>
+				<label for="idnumber1">Идентификационен номер:</label>
+				<input id="idnumber1" name="Number" type="number" min="20" max="80">
+			</p>
+			<p>
+				<label for="idnumber2">Възраст:</label>
+				<input id="idnumber2" name="Number1" type="number" min="20" max="80">
+			</p>
+			<p>
+				<span>Пол:</span>
+				<label for="gender">
+					<input type="radio" name="gender" id="gender">
+					<span>Мъж:</span>
+				</label>
+				<label for="gender1">
+					<input type="radio" name="gender" id="gender1">
+					<span>Жена</span>
+				</label>
+			</p>
+		</fieldset>
+	</form>
+	<form style="width: 50%">
+		<fieldset>
+			<legend>Времеви филтри</legend>
+			<p>
+				<label for="issuedate1">Начална дата:</label>
+				<input type="date" id="issuedate1">
+			</p>
+			<p>
+				<label for="issuedate2">Крайна дата:</label>
+				<input type="date" id="issuedate2">
+			</p>
+		</fieldset>
+		<fieldset>
+			<legend>Контакти:</legend>
+			<p>
+				<label>Канал за комуникация:</label>
+				<input type="tel" name="usrtel">
+			</p>	
+			<p>
+				<label>Email:</label>
+				<input type="email" name="email">
+			</p>
+		</fieldset>
+		<p>
+			<button type="submit" value="submit">Търсене</button>
+			<button type="reset" value="reset">Изтриване</button>
+		</p>
+		<table style="width: 100%">
+			<tr>
+				<th colspan="9">Резултати:</th>
+			</tr>
+			<tr>
+				<th>Номер</th>
+				<th>Име</th>
+				<th>Фамилия</th>
+				<th>ИН</th>
+				<th>Пол</th>
+				<th>НД</th>
+				<th>КД</th>
+				<th>КК</th>
+				<th>Имейл</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tfoot>
+		</table>
+	</main>
+</body>
+
+</html>
