@@ -1,0 +1,42 @@
+/*Variables*/
+/*Resets*/
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+  background-color: #ffffff;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+a:hover {
+  color: #b3b3b3;
+}
+/*Utils*/
+.clear-fix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+/*Page styles*/
+header {
+  background-color: #333333;
+  color: #ffffff;
+}
+footer {
+  background-color: #333333;
+  color: #ffffff;
+}

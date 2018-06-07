@@ -1,0 +1,101 @@
+/*
+body, html {
+	font-size: 0;
+	width:100%;
+	height:100%;
+}
+*/
+/*
+.primer1{
+	width:300px;
+	height:300px;
+	border: 1px solid blue;
+	position: absolute;
+	margin-right:auto;
+	margin-left:auto;
+	
+}
+
+.primer2{
+	width: 30px;
+	height: 30px;
+	padding: 50px;
+	border: 1px solid red;
+	margin-right:auto;
+	margin-left:auto;
+	position: absolute;
+	background: yellow;
+	right:0;
+	bottom:0;
+}
+*/
+
+/*
+.position1 {
+	display:inline-block;
+	height:100%;
+	width:25%;
+	background-color:red;
+	
+}
+
+.position2 {
+	display:inline-block;
+	height:100%;
+	width:50%;
+	background-color:yellow;
+	
+}
+*/
+
+.positionAbs {
+	display: inline-block;
+	position: absolute;
+	border: 1px solid red;
+	text-align: center;
+	padding: 1%;
+	top: 100px;
+	left: 200px;
+	
+}
+
+.positionAbs2 {
+	display: inline-block;
+	position: absolute;
+	border: 1px solid red;
+	text-align: center;
+	padding: 1%;
+	top: 100px;
+	left: 200px;
+	
+}
+
+.positionfixed {
+	display: inline-block;
+	position: fixed;
+	border: 1px solid green;
+	text-align: center;
+	padding: 1%;
+	right:0;
+	bottom:0;
+}
+
+.positionrel {
+	display: inline-block;
+	position: absolute;
+	border: 1px solid red;
+	text-align: center;
+	padding: 1%;
+	top: 100px;	
+	
+}
+
+.positionstatic {
+	display:inline-block;
+	border: 1px solid green;
+	width: 100px;
+	padding: 1%;
+	text-align: center;
+	margin-right: 10px;
+}	
+

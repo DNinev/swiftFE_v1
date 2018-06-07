@@ -1,0 +1,11 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4f4f4f;
+      }
+    </style>
+  </defs>
+  <title>Circle Forbidden</title>
+  <path class="cls-1" d="M12,0A12,12,0,1,0,24,12,12.01344,12.01344,0,0,0,12,0Zm0,2a9.95153,9.95153,0,0,1,6.32422,2.26172L4.26172,18.32422A9.99282,9.99282,0,0,1,12,2Zm0,20a9.95153,9.95153,0,0,1-6.32422-2.26172l14.0625-14.0625A9.99282,9.99282,0,0,1,12,22Z"/>
+</svg>

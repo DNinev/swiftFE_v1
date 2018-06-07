@@ -1,0 +1,150 @@
+//5. IMPORTS
+
+// @import "reset.less";
+// @import "font.less";
+// @import (inline) "overwrites.css";
+
+// 1. VARIABLES
+
+@main-background-color: #fff;
+@main-text-color: #333;
+@negative-text-color: red;
+@positive-text-color: green;
+@default-font-family: 'Times New Roman', Times, serif;
+@default-font-size: 14px;
+@header-font-size: @default-font-size*1.5;
+
+// 2.1. MIXINS
+
+* {
+    .prefix(box-sizing, border-box);
+}
+
+body {
+    .default-font();
+}
+
+h1, h2 {
+    width: 60%;
+    font-size: @header-font-size;
+    font-weight: 400;
+    .reset-padding;
+    .reset-margin;
+    .centered-item;
+}
+
+.default-font {
+    font-family: @default-font-family;
+    font-size: @default-font-size;
+}
+
+.centered-item {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reset-padding {
+    padding: 0;
+}
+
+.reset-margin {
+    margin: 0;
+}
+
+.bordered-content {
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+// 2.2 mixin with parameter
+
+.prefix(@property, @value) {
+    -webkit-@{property}: @value;
+    -moz-@{property}: @value;
+    -ms-@{property}: @value;
+    @{property}: @value;
+}
+
+.flex-container {
+    .prefix(display, flex);
+}
+
+// 3. NESTING 
+
+div {
+    a {
+        color:@main-text-color;
+        padding: 20px;
+        font-size: @default-font-size * 2;
+    
+        &:hover {
+            color: red;
+        }
+    
+        &:focus {
+            color: green;
+        }
+    }
+}
+
+// 4. EXTEND
+
+.text {
+    padding: 10px;
+    color: @main-text-color;
+    font-family: @default-font-family;
+    text-align: center;
+}
+
+.negative:extend(.text) {
+    border: 1px solid red;
+    color: @negative-text-color;
+}
+
+.old:extend(.text) {
+    font-style: italic;
+}
+
+//6. COLORS
+@start-color: royalblue;
+
+.colors {
+    
+    .text:first-child {
+        color: @start-color;
+        font-weight: 600;
+    }
+
+    .text:nth-child(2) {
+        color: lighten(@start-color, 15%);
+        font-weight: 600;
+    }
+
+    .text:nth-child(3) {
+        color: darken(@start-color, 15%);
+        font-weight: 600;
+    }
+
+    .text:nth-child(4) {
+        color: spin(@start-color, 80%);
+        font-weight: 600;
+    }
+
+    .text:last-child {
+        color: grayscale(@main-text-color);
+        font-weight: 600;
+    }
+
+}
+
+//8. LOOPS
+.generate-columns(4);
+.generate-columns(12);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+    .column-@{i} {
+        width: (@i * 100% / @n);
+    }
+    .generate-columns(@n, (@i + 1));
+}
+

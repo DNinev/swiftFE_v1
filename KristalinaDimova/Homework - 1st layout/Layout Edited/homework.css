@@ -1,0 +1,299 @@
+		html, body {
+		height:100%;
+		width:100%;
+		margin:0;
+        padding:0;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        .float-left{
+            float: left;
+        }
+
+        .float-left::after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .float-right {
+            float: right;
+            font-size: 15px;
+        }
+        .float-right::after {
+            content: "";
+            clear: both;
+            display: table;
+
+        }
+
+        header {
+            background-color: #333;
+            height:90px;
+            overflow: visible;
+        }
+
+        .container {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 10px 0;
+        }
+
+        header>nav>a {
+            color:#fff;
+            background-color: #333;
+            text-decoration: none;
+            padding: 10px;
+            border: none;
+        }
+
+        .container >div>a {
+            background-color: 
+
+        }
+
+        .logo {
+          height: 50px;
+          width: 90px;
+          font-size: 30px;
+          color: white;
+
+        }
+
+        .container p {
+            color:#fff;
+            font-size: 15px;
+        }
+
+        /*HEADER NAV*/
+
+
+        ul {
+            margin: 0;
+            padding: 0;
+        
+        }
+
+        ul li{
+            list-style: none;
+        }
+
+        .first-level{
+            background-color: black;
+        }
+        .first-level>li{
+            display: inline-block;
+            position: relative;
+        }
+
+        .first-level>li>a{
+            text-decoration: none;
+            color:#fff;
+            display: inline-block;
+            padding: 10px;
+        }
+        .first-level>li>a:hover{
+            transform: translateY(2px);
+            transition: all .2s ease-in;
+            background-color: #1b1919;
+        }
+        .second-level {
+            display: none;
+            background-color: #333;
+        }
+
+        .first-level li:hover .second-level{
+            position: absolute;
+            display: block;
+            padding: 0;
+        }
+        .first-level li:hover .second-level li{
+            padding: 10px;
+        }
+
+        .second-level>li{
+            color:#fff;
+            background-color: #555;
+        }
+
+        .second-level li:hover{
+            background-color: pink;
+            cursor: pointer;
+            transform: translateY(2px);
+            transition: all .2s ease-in;
+            background-color: #1b1919;
+        }
+
+        /*MAIN*/
+
+        main {
+            width: 900px;
+            margin: 0 auto;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        main p {
+            text-align: center;
+        }
+        .main-images {
+            display: inline-block;
+            padding: 2px;
+            border: 1px solid #333;
+        }
+        .main-images:hover{
+            transform: scale(1.05);
+            transition: all .3s ease-in;
+        }
+        .images-container {
+            margin-bottom: 22px;
+        }
+      .main-images::after{
+        content: "LOREM IPSUM";
+        position: absolute;
+        display: inline-block;
+        z-index: -1;
+        transform: translateY(-40px);
+        line-height: 40px;
+        width: 215px;
+        }
+        .main-images:hover img:hover::after {
+        opacity: 0.75;
+        z-index: 1;
+        transform: translateY(0);
+    }
+        /*Section*/
+        .section-article-content{
+            width: 900px;
+            margin: 0 auto;
+        }
+        section {
+            width:75%;
+            margin: 0 auto;
+            float:left;
+        }
+
+        article {
+            margin-top: 10px;
+            
+        }
+        section::after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+        article>div{
+            display: inline-block;
+            position: relative;
+            width: calc(100% - 199px);
+        }
+
+        .article-float-right{
+            float: right;
+        }
+        .article-float-right::after{
+            content: "";
+            clear: both;
+            display: table;
+
+        }
+        article>img {
+            padding: 6px;
+            background: grey;
+            border: 1px solid black;
+            margin-right: 5px;
+        }
+        article>img:hover{
+            transform: scale(1.05);
+            transition: all .3s ease-in;
+        }
+        article>a {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            text-align: right;
+            font-size: 16px;
+            color: orange;
+            text-decoration: none;
+        }
+        article>div>p>a{
+            color: orange;
+            text-decoration: none;
+        }
+        article>div>p>a:hover, article>a:hover{
+            text-decoration: underline;
+        }
+
+        /*aside*/
+        aside {
+            margin-top: 10px;
+            width: 25%;
+            float:right;
+        }
+        aside::after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+        aside>h1, aside li{
+            border-bottom: 2px dashed grey;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        aside ul a {
+            text-decoration: none;
+            color: #333;
+            padding-left: 5px;
+        }
+
+        aside ul li:hover{
+            transition: all .4s ease-in;
+            transform: scale(1.01);
+            transition: all .2s ease-in;
+            background-color: #c7c7c7;
+        }
+
+        .li-aside a::before{
+            content: '';
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-left: 10px solid orange;
+            border-bottom: 5px solid transparent;
+            margin-right: 10px;
+        }
+        .clear-fix::after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+        footer{
+            background-color: #333;
+            height: 50px;
+        }
+        footer>div{
+            width: 900px;
+            margin:0 auto;
+            padding:15px;
+            color: #fff;
+        }
+        .footer-float-left{
+            float: left;
+        }
+        .footer-float-right{
+            float: right;
+        }
+        footer>div::after{
+            content: "";
+            clear: both;
+            display: table;
+        }

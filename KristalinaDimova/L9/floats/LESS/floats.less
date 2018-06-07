@@ -1,0 +1,63 @@
+/*Variables*/
+
+@text-color-primary: #333;
+@text-color-secondary: #fff;
+
+@background-color-primary: #fff;
+@background-color-secondary: #333;
+
+
+/*Resets*/
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: @text-color-primary;
+    background-color: @background-color-primary;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    
+    text-decoration: none;
+    color: @text-color-secondary;
+
+    &:hover {
+        color: darken(@text-color-secondary, 30%);
+    }
+}
+
+/*Utils*/
+
+.clear-fix {
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+/*Page styles*/
+
+header {
+    background-color: @background-color-secondary;
+    color: @text-color-secondary;
+}
+
+footer {
+    background-color: @background-color-secondary;
+    color: @text-color-secondary;
+}

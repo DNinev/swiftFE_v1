@@ -1,0 +1,138 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+h1,
+h2 {
+  width: 60%;
+  font-size: 21px;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.default-font {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+.centered-item {
+  margin-left: auto;
+  margin-right: auto;
+}
+.reset-padding {
+  padding: 0;
+}
+.reset-margin {
+  margin: 0;
+}
+.bordered-content {
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+.flex-container {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  display: flex;
+}
+div a {
+  color: #333333;
+  padding: 20px;
+  font-size: 28px;
+}
+div a:hover {
+  color: red;
+}
+div a:focus {
+  color: green;
+}
+.text,
+.negative,
+.old {
+  padding: 10px;
+  color: #333333;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+.negative {
+  border: 1px solid red;
+  color: red;
+}
+.old {
+  font-style: italic;
+}
+.colors .text:first-child {
+  color: royalblue;
+  font-weight: 600;
+}
+.colors .text:nth-child(2) {
+  color: #839deb;
+  font-weight: 600;
+}
+.colors .text:nth-child(3) {
+  color: #1d44b8;
+  font-weight: 600;
+}
+.colors .text:nth-child(4) {
+  color: #e141d4;
+  font-weight: 600;
+}
+.colors .text:last-child {
+  color: grayscale(#333333);
+  font-weight: 600;
+}
+.column-1 {
+  width: 25%;
+}
+.column-2 {
+  width: 50%;
+}
+.column-3 {
+  width: 75%;
+}
+.column-4 {
+  width: 100%;
+}
+.column-1 {
+  width: 8.33333333%;
+}
+.column-2 {
+  width: 16.66666667%;
+}
+.column-3 {
+  width: 25%;
+}
+.column-4 {
+  width: 33.33333333%;
+}
+.column-5 {
+  width: 41.66666667%;
+}
+.column-6 {
+  width: 50%;
+}
+.column-7 {
+  width: 58.33333333%;
+}
+.column-8 {
+  width: 66.66666667%;
+}
+.column-9 {
+  width: 75%;
+}
+.column-10 {
+  width: 83.33333333%;
+}
+.column-11 {
+  width: 91.66666667%;
+}
+.column-12 {
+  width: 100%;
+}

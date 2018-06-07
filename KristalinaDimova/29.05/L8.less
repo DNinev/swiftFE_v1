@@ -1,0 +1,31 @@
+@default-font-size: 16px;
+@default-border-width: 2px;
+
+body {
+	font-size: @default-font-size;
+}
+
+div {
+	font-size: @default-font-size / 2
+}
+
+.bordered {
+	border: @default-border-width solid black;
+}
+
+
+
+
+
+
+#content {
+		a {
+			color: red;
+			&:hover {
+				color:green;
+				&:selected{
+					color:blue;
+				}
+			}
+		}
+}
