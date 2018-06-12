@@ -1,0 +1,137 @@
+body {
+    width: 100%;
+}
+div {
+    display: block;
+}
+
+.wrapper {
+    width: 950px;
+    margin: 0 auto;
+}
+.wrap {
+    border: 1px solid grey;
+    padding: 5px;
+    margin-right: 10px;
+    display: inline-block;
+}
+.wrap:last-of-type {
+    margin-right: 0;
+}
+.pup-pic {
+    width: 215px;
+    height: 315px;
+}
+.pup-pic-foot {
+    text-transform: uppercase;
+    background-color: lightgrey; 
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    margin-top: -4px;
+    font-size: 18px;
+}
+.header {
+    background-color: darkgrey;
+    width: 100%;
+}
+.header ul {
+    background-color: #000;
+    float: right;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.header ul li {
+     padding: 15px;
+     text-transform: none;
+     display: inline;
+     width: 20%;
+     text-align: center;
+     color: #fff;
+     font-size: 18px;
+}
+.logo {
+    margin-top: 15px;
+    width: 120px;
+    height:80px;
+}
+.logo-wrapper, ul {
+display: inline-block;
+}
+.logo-wrapper {
+    width: 150px;
+
+}
+.logo-under {
+    display: block;
+    font-size: 20px;
+}
+.sectionMidle {
+    text-align: center;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    line-height: 2.7;
+    padding: 20px 0;
+}
+.sectionMidle::first-letter {
+    margin-left: 15px;
+}
+
+.textRight > h3 {
+    margin-top: 0;
+}
+.wrap-img {
+    display: inline;
+    float: left;
+    border: 1px solid grey;
+    padding: 5px;
+    margin-right: 20px;
+}
+.category-right {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 30px;
+    float: right;
+}
+.left-side {
+    float: left;
+    width: 70%;
+    margin-right: 5%;
+}
+.right-side {
+    float: right;
+    width: 25%;
+}
+.orange {
+    color: orangered;
+    font-weight: bold;
+}
+.text-right {
+    text-align: right;
+
+.det {
+     color: orangered;
+ }  
+
+}
+.bot, .category > details {
+    border-bottom: 1px solid grey;
+    border-bottom-style: dotted;
+}
+.category > details {
+    padding: 5px;
+
+}
+.category > details > summary {
+    padding-left: 10px;
+}
+.img-left {
+    width: 180px;
+    height: 150px;
+}
+.up {
+    text-transform: uppercase;
+}
+
