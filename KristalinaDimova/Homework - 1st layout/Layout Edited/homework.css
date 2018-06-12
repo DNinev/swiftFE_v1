@@ -154,20 +154,9 @@
         .images-container {
             margin-bottom: 22px;
         }
-      .main-images::after{
-        content: "LOREM IPSUM";
-        position: absolute;
-        display: inline-block;
-        z-index: -1;
-        transform: translateY(-40px);
-        line-height: 40px;
-        width: 215px;
+        .main-images img{
+            
         }
-        .main-images:hover img:hover::after {
-        opacity: 0.75;
-        z-index: 1;
-        transform: translateY(0);
-    }
         /*Section*/
         .section-article-content{
             width: 900px;
