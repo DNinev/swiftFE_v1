@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Fonts</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css?family=Cabin');
+
+
+        body {
+            font-size: 10px;
+            font-family: Roboto, sans-serif;
+        }
+
+        h2 {
+            font-family: 'Cabin', sans-serif;
+            font-size: 24px
+        }
+
+        .font-styles {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Roboto, sans-serif;
+            font-size: 16px;
+            font-size: 1em;
+            font-size: 1rem;
+            /* font-weight: 600; */
+            /* font-weight: bold; */
+            color: #333;
+            /* text-decoration: underline; */
+        }
+
+        .ellipsis {
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* .em-example {
+            font-size: 20px;
+        } */
+
+        @media all and (max-width: 699px) {
+            body {
+                color: red;
+            }
+
+            .font-styles {
+                color: green;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="em-example">
+        <h2>I. Font Styles</h2>
+
+        <p class="font-styles">Phasellus ac gravida nisl. Donec vitae est quis felis consequat venenatis vel sit amet ligula. Cras commodo sem eget
+            leo porttitor pretium. Integer id lectus mollis quam rutrum iaculis. Proin eget nibh varius, volutpat erat nec,
+            volutpat ligula. Proin consectetur fermentum lacus sed convallis. Ut consectetur nibh dolor, varius commodo enim
+            ullamcorper non. Aenean ut arcu nulla. Morbi non ullamcorper nisi.</p>
+
+    </div>
+
+    <div >
+        <h2>II. Text Layout</h2>
+
+        <p class="font-styles">Phasellus ac gravida nisl. Donec vitae est quis felis consequat venenatis vel sit amet ligula. Cras commodo sem eget
+            leo porttitor pretium. Integer id lectus mollis quam rutrum iaculis. Proin eget nibh varius, volutpat erat nec,
+            volutpat ligula. Proin consectetur fermentum lacus sed convallis. Ut consectetur nibh dolor, varius commodo enim
+            ullamcorper non. Aenean ut arcu nulla. Morbi non ullamcorper nisi.</p>
+    </div>
+
+    <div >
+        <h2>III. Text Ellipsis</h2>
+
+        <p class="font-styles ellipsis">Phasellus ac gravida nisl. Donec vitae est quis felis consequat venenatis vel sit amet ligula. Cras commodo sem eget
+            leo porttitor pretium. Integer id lectus mollis quam rutrum iaculis. Proin eget nibh varius, volutpat erat nec,
+            volutpat ligula. Proin consectetur fermentum lacus sed convallis. Ut consectetur nibh dolor, varius commodo enim
+            ullamcorper non. Aenean ut arcu nulla. Morbi non ullamcorper nisi.</p>
+    </div>
+</body>
+
+</html>
