@@ -324,6 +324,9 @@ aside a:hover:before {
     align-self: center;
 }
 
+nav {
+  background-color: #333;
+}
 nav ul {
     list-style: none;
     padding: 0;
@@ -346,7 +349,6 @@ nav ul {
     color: #fff;
     text-decoration: none;
     text-transform: uppercase;
-    background-color: #333;
     font-size: 14px;
 }
 
